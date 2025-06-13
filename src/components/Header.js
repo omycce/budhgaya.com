@@ -1,19 +1,23 @@
-﻿budhgaya-travel-guide/
-├── public/
-│   └── index.html
-├── src/
-│   ├── assets/
-│   │   └── images/           # Place your images here
-│   ├── components/
-│   │   ├── Header.js
-│   │   ├── Hero.js
-│   │   ├── Featured.js
-│   │   ├── Explore.js
-│   │   ├── Gallery.js
-│   │   ├── About.js
-│   │   ├── TravelDetails.js
-│   │   ├── Footer.js
-│   │   └── NavLinks.js
-│   ├── App.js
-│   ├── App.css
-│   └── index.js
+﻿import React from 'react';
+
+function Header() {
+  return (
+    <header className="main-header">
+      <nav className="nav">
+        <a className="logo" href="#">budhgaya<span>.com</span></a>
+        <div className="nav-links">
+          <a href="#top-attractions">Attractions</a>
+          <a href="#explore">Explore</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#about">About</a>
+          <a href="#cuisine">Cuisine</a>
+          <a href="#events">Events</a>
+          <a href="#faq">FAQ</a>
+          <a href="#travel-details">Travel Info</a>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+export default Header;
