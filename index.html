@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Budh Gaya Travel Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Discover Bodh Gaya with a stylish, modern travel guide.">
+  <meta name="description" content="Discover Budh Gaya with a stylish, modern travel guide.">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Roboto:400,500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -12,9 +12,11 @@
       --accent: #ffb347;
       --bg: #f5f6fa;
       --white: #fff;
-      --radius: 16px;
-      --shadow: 0 8px 40px rgba(0,0,0,0.09);
+      --radius: 18px;
+      --shadow: 0 10px 40px rgba(0,0,0,0.11);
       --hero-gradient: linear-gradient(120deg, #005fa3 0%, #ffb347 100%);
+      --overlay: linear-gradient(180deg, rgba(0,41,82,0.13) 40%, rgba(0,41,82,0.88) 100%);
+      --glass: rgba(255,255,255,0.15);
     }
     * { box-sizing: border-box; }
     body {
@@ -22,6 +24,7 @@
       background: var(--bg);
       color: #1a1a1a;
       font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
     }
     header {
       background: var(--white);
@@ -47,6 +50,7 @@
       text-decoration: none;
       display: flex;
       align-items: center;
+      text-shadow: 1px 3px 8px #e0eaf3;
     }
     .logo span {
       color: var(--accent);
@@ -57,45 +61,56 @@
     }
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 28px;
     }
     .nav-links a {
       color: #1a1a1a;
       font-weight: 500;
       text-decoration: none;
-      font-size: 1em;
+      font-size: 1.03em;
       padding: 6px 0;
       border-bottom: 2px solid transparent;
-      transition: color .2s, border .2s;
+      transition: color .2s, border .2s, background .2s;
+      border-radius: 5px;
     }
     .nav-links a:hover {
       color: var(--primary);
       border-bottom: 2px solid var(--accent);
+      background: #f7f6ef;
+      padding-left: 6px;
+      padding-right: 6px;
     }
+    /* Hero Section */
     .hero {
       position: relative;
-      min-height: 480px;
+      min-height: 520px;
       display: flex;
       align-items: flex-end;
-      justify-content: left;
       border-radius: 0 0 var(--radius) var(--radius);
       overflow: hidden;
       background: var(--hero-gradient);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+      margin-bottom: 8px;
     }
     .hero-bg-img {
       position: absolute;
       z-index: 0;
       left: 0; top: 0; width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center 30%;
-      filter: brightness(0.82) saturate(1.07) blur(0.5px);
+      object-position: center 85%;
+      filter: brightness(0.80) saturate(1.1) blur(0.5px);
       transition: filter .3s;
+      animation: zoomin 12s linear infinite alternate;
+    }
+    @keyframes zoomin {
+      from { transform: scale(1);}
+      to { transform: scale(1.07);}
     }
     .hero::after {
       content: "";
       position: absolute;
       left: 0; bottom: 0; width: 100%; height: 100%;
-      background: linear-gradient(180deg,rgba(0,41,82,0.21) 40%,rgba(0,41,82,0.8) 100%);
+      background: var(--overlay);
       z-index: 1;
       border-radius: 0 0 var(--radius) var(--radius);
     }
@@ -103,63 +118,76 @@
       position: relative;
       z-index: 2;
       color: #fff;
-      padding: 48px 32px 60px 52px;
-      max-width: 650px;
-      text-shadow: 0 4px 14px #0a0a0a60;
+      padding: 58px 38px 72px 62px;
+      max-width: 700px;
+      text-shadow: 0 4px 24px #0a0a0a77;
       animation: fadein 1.2s;
+      background: var(--glass);
+      border-radius: 24px 24px 0 0;
+      backdrop-filter: blur(3px);
+      box-shadow: 0 8px 50px rgba(0,0,0,0.08);
     }
     @keyframes fadein {
-      from { opacity: 0; transform: translateY(20px);}
+      from { opacity: 0; transform: translateY(28px);}
       to   { opacity: 1; transform: translateY(0);}
     }
     .hero-content h1 {
-      font-size: 2.8em;
-      margin: 0 0 14px 0;
+      font-size: 3em;
+      margin: 0 0 18px 0;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
       letter-spacing: 2px;
       color: #fff;
       background: rgba(0,0,0,0.16);
       padding: 0.08em 0.3em 0.08em 0.2em;
-      border-radius: 6px;
+      border-radius: 7px;
       display: inline-block;
+      box-shadow: 0 2px 10px #2223;
     }
     .hero-content p {
       font-size: 1.35em;
       color: #ffe;
-      margin: 0 0 14px 0;
-      line-height: 1.5;
+      margin: 0 0 18px 0;
+      line-height: 1.55;
+      background: rgba(0,0,0,0.07);
+      border-radius: 7px;
+      padding: 3px 8px 4px 8px;
+      box-shadow: 0 1px 6px #3332;
+      max-width: 550px;
     }
     .quicklinks {
       display: flex;
-      gap: 28px;
-      margin-top: 28px;
+      gap: 32px;
+      margin-top: 30px;
       flex-wrap: wrap;
     }
     .quicklink {
       background: var(--white);
       color: var(--primary);
-      padding: 10px 26px;
+      padding: 11px 28px;
       border-radius: 22px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 2px 10px rgba(0,95,163,0.07);
+      box-shadow: 0 2px 12px rgba(0,95,163,0.09);
       transition: background .18s, color .18s, transform .15s;
-      font-size: 1.08em;
+      font-size: 1.09em;
       border: none;
       cursor: pointer;
+      letter-spacing: 1.4px;
     }
     .quicklink:hover {
       background: var(--primary);
       color: var(--white);
-      transform: translateY(-2px) scale(1.05);
+      transform: translateY(-2px) scale(1.07);
+      box-shadow: 0 10px 28px rgba(0,95,163,0.21);
     }
+    /* Cards Section */
     .featured {
-      max-width: 1200px;
-      margin: 58px auto 0 auto;
+      max-width: 1220px;
+      margin: 64px auto 0 auto;
       display: flex;
       flex-wrap: wrap;
-      gap: 36px;
+      gap: 40px;
       justify-content: center;
       animation: fadein 1.2s;
     }
@@ -168,47 +196,58 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
-      width: 360px;
-      min-height: 440px;
+      width: 370px;
+      min-height: 450px;
       display: flex;
       flex-direction: column;
       transition: transform .18s, box-shadow .18s;
       cursor: pointer;
       position: relative;
     }
+    .card::before {
+      content: "";
+      display: block;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(170deg, #ffb34711 0%, #005fa311 100%);
+      pointer-events: none;
+    }
     .card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 16px 56px rgba(0,95,163,0.18);
+      transform: translateY(-12px) scale(1.035);
+      box-shadow: 0 16px 54px rgba(0,95,163,0.22);
       border: 2.5px solid var(--accent);
     }
     .card-img {
       width: 100%;
-      height: 210px;
+      height: 220px;
       object-fit: cover;
-      filter: brightness(0.98) saturate(1.09);
+      filter: brightness(0.98) saturate(1.13);
       transition: filter .2s;
     }
     .card:hover .card-img {
-      filter: brightness(0.93) saturate(1.2);
+      filter: brightness(0.94) saturate(1.22);
     }
     .card-content {
-      padding: 26px 24px 20px 24px;
+      padding: 28px 25px 22px 25px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
     .card-title {
-      font-size: 1.18em;
+      font-size: 1.2em;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      letter-spacing: 1.2px;
+      text-shadow: 0 2px 8px #f5f6fa;
     }
     .card-desc {
       color: #343434;
-      font-size: 1em;
+      font-size: 1.04em;
       flex: 1;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .card-link {
       color: var(--accent);
@@ -217,10 +256,16 @@
       font-size: 1em;
       align-self: flex-start;
       margin-top: 8px;
+      transition: color .18s;
     }
+    .card-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    /* Explore Section */
     .explore-section {
       max-width: 1200px;
-      margin: 70px auto 0 auto;
+      margin: 74px auto 0 auto;
       padding: 0 16px;
       animation: fadein 1.7s;
     }
@@ -230,42 +275,105 @@
       font-size: 2.1em;
       font-weight: 700;
       margin: 0 0 28px 0;
+      letter-spacing: 1.2px;
     }
     .explore-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 30px;
+      gap: 32px;
     }
     .explore-card {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 26px 22px 18px 22px;
+      padding: 28px 23px 19px 23px;
       display: flex;
       flex-direction: column;
       gap: 4px;
       min-height: 170px;
-      transition: box-shadow .18s, border .18s;
+      transition: box-shadow .18s, border .18s, transform .18s;
       border: 2px solid transparent;
     }
     .explore-card:hover {
-      box-shadow: 0 14px 40px rgba(0,95,163,0.11);
+      box-shadow: 0 18px 40px rgba(0,95,163,0.13);
       border: 2px solid var(--accent);
+      transform: scale(1.025);
     }
     .explore-title {
       font-size: 1.09em;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
       color: var(--primary);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
     }
     .explore-desc {
-      font-size: .99em;
-      color: #333;
+      font-size: 1.03em;
+      color: #444;
       margin-top: 7px;
     }
+    /* Gallery Section */
+    .gallery-section {
+      max-width: 1200px;
+      margin: 80px auto 0 auto;
+      padding: 0 16px;
+      animation: fadein 2.4s;
+    }
+    .gallery-section h2 {
+      color: var(--primary);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 1.3px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+    .gallery-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.12);
+      transition: transform .18s, box-shadow .18s, filter .18s;
+      filter: brightness(0.98) saturate(1.1);
+    }
+    .gallery-img:hover {
+      transform: scale(1.06) rotate(-1deg);
+      box-shadow: 0 12px 36px rgba(0,95,163,0.14);
+      filter: brightness(1.06) saturate(1.19);
+      cursor: pointer;
+    }
+    /* About Section */
+    .about-section {
+      max-width: 1000px;
+      margin: 74px auto 0 auto;
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 22px rgba(0,41,82,0.16);
+      padding: 38px 28px 32px 28px;
+      font-size: 1.15em;
+      animation: fadein 2.8s;
+    }
+    .about-section h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.5em;
+      letter-spacing: 1px;
+    }
+    .about-section ul {
+      margin: 18px 0 0 0;
+      padding: 0 0 0 14px;
+    }
+    /* Travel Details Section */
     .travel-details {
       max-width: 1100px;
-      margin: 80px auto 0 auto;
+      margin: 85px auto 0 auto;
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -277,70 +385,24 @@
       font-family: 'Montserrat', Arial, sans-serif;
       font-size: 1.44em;
       margin-top: 0;
+      letter-spacing: 1px;
     }
     .travel-list li {
-      margin-bottom: 10px;
-      font-size: 1em;
-    }
-    .gallery-section {
-      max-width: 1200px;
-      margin: 72px auto 0 auto;
-      padding: 0 16px;
-      animation: fadein 2.4s;
-    }
-    .gallery-section h2 {
-      color: var(--primary);
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2em;
-      font-weight: 700;
-      margin-bottom: 22px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-    .gallery-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 2px 18px rgba(0,0,0,0.11);
-      transition: transform .18s;
-    }
-    .gallery-img:hover {
-      transform: scale(1.06) rotate(-2deg);
-    }
-    .about-section {
-      max-width: 1000px;
-      margin: 70px auto 0 auto;
-      background: var(--primary);
-      color: #fff;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 22px rgba(0,41,82,0.16);
-      padding: 38px 28px 32px 28px;
-      font-size: 1.13em;
-      animation: fadein 2.8s;
-    }
-    .about-section h2 {
-      margin-top: 0;
-      color: var(--accent);
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.5em;
-    }
-    .about-section ul {
-      margin: 18px 0 0 0;
-      padding: 0 0 0 14px;
+      margin-bottom: 13px;
+      font-size: 1.06em;
     }
     footer {
       background: #e5eaf1;
       color: #005fa3;
       text-align: center;
-      padding: 34px 0 24px 0;
-      font-size: 1.08em;
-      margin-top: 70px;
+      padding: 36px 0 27px 0;
+      font-size: 1.12em;
+      margin-top: 80px;
       border-radius: var(--radius) var(--radius) 0 0;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 20px #c1d8ee33;
     }
+    /* Responsive */
     @media (max-width: 1100px) {
       .featured { gap: 20px;}
       .explore-section { padding: 0 4px;}
@@ -349,7 +411,7 @@
     @media (max-width: 800px) {
       .hero-content { padding: 36px 8px 40px 8px; }
       .featured { justify-content: center;}
-      .card { width: 97vw; max-width: 370px;}
+      .card { width: 98vw; max-width: 390px;}
     }
     @media (max-width:480px) {
       .nav { flex-direction: column; gap: 12px;}
@@ -373,7 +435,7 @@
     </nav>
   </header>
   <div class="hero">
-    <img src="https://github.com/omycce/budhgaya.com/blob/master/bodh-gaya-1.jpg" alt="Great Buddha Statue Budh Gaya" class="hero-bg-img">
+    <img src="/@omycce/budhgaya.com/files/bodh-gaya-1.jpg" alt="Great Buddha Statue Budh Gaya" class="hero-bg-img">
     <div class="hero-content">
       <h1>Budh Gaya Travel Guide</h1>
       <p>
@@ -441,27 +503,27 @@
       </div>
       <div class="explore-card">
         <div class="explore-title">Pilgrim Life</div>
-        <div class="explore-desc">Witness or join the rituals of pilgrims from across Asia, making Budh Gaya a truly international town.</div>
+        <div class="explore-desc">Witness or join the rituals of pilgrims from across Asia, making Bodh Gaya a truly international town.</div>
       </div>
     </div>
   </div>
 
   <div class="gallery-section" id="gallery">
-    <h2>Budh Gaya in Pictures</h2>
+    <h2>Bodh Gaya in Pictures</h2>
     <div class="gallery-grid">
       <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Mahabodhi_Temple_Bodh_Gaya_Bihar.jpg" alt="Mahabodhi Temple - Gallery">
       <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Bodhi_Tree%2C_Bodh_Gaya%2C_India.jpg" alt="Bodhi Tree - Gallery">
       <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Great_Buddha_Statue%2C_Bodh_Gaya.jpg" alt="Great Buddha Statue - Gallery">
       <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Thai_monastery%2C_Bodh_Gaya%2C_India.jpg" alt="Thai Monastery - Gallery">
       <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Sujata_Kuti_Bodh_Gaya.jpg" alt="Sujata Kuti - Gallery">
-      <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Bodhgaya_Monks_India.jpg" alt="Monks in Budh Gaya - Gallery">
+      <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Bodhgaya_Monks_India.jpg" alt="Monks in Bodh Gaya - Gallery">
     </div>
   </div>
 
   <div class="about-section" id="about">
-    <h2>About Budh Gaya</h2>
+    <h2>About Bodh Gaya</h2>
     <p>
-      Budh Gaya, in the Indian state of Bihar, is one of the world’s most important Buddhist pilgrimage centres. It is the place where Gautama Buddha attained enlightenment beneath the sacred Bodhi Tree. Today, pilgrims, monks, and travellers from all over the world gather here to meditate, learn, and experience the spiritual atmosphere of this UNESCO World Heritage Site.
+      Bodh Gaya, in the Indian state of Bihar, is one of the world’s most important Buddhist pilgrimage centres. It is the place where Gautama Buddha attained enlightenment beneath the sacred Bodhi Tree. Today, pilgrims, monks, and travellers from all over the world gather here to meditate, learn, and experience the spiritual atmosphere of this UNESCO World Heritage Site.
     </p>
     <ul>
       <li><b>Location:</b> Bihar, India</li>
@@ -481,7 +543,7 @@
       <li><b>Where to Stay:</b> Choose from guesthouses, monastery stays, budget hotels, and a few mid-range options.</li>
       <li><b>Food & Drink:</b> Enjoy Bihari food, Indian vegetarian fare, and Tibetan/Thai dishes at cafes and markets.</li>
       <li><b>Etiquette:</b> Dress modestly, remove shoes in temples, ask before taking photos of monks or prayer spaces.</li>
-      <li><b>Safety:</b> Budh Gaya is generally safe, but take care with belongings and avoid isolated areas at night.</li>
+      <li><b>Safety:</b> Bodh Gaya is generally safe, but take care with belongings and avoid isolated areas at night.</li>
     </ul>
   </div>
   <footer>
