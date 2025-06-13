@@ -2,128 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bodh Gaya Travel</title>
+    <title>Best Places to Visit in Bodh Gaya</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A travel guide to Bodh Gaya, the spiritual heart of India. Discover attractions, tips, and travel info.">
+    <meta name="description" content="Discover the best places to visit in Bodh Gaya with this beautiful travel inspiration page.">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --main-color: #6b4f1d;
-            --accent-color: #f7cb60;
-            --light-bg: #f2f2f2;
-            --card-bg: #fffbe7;
-            --shadow: 0 4px 16px rgba(0,0,0,0.09);
+            --main-color: #704b12;
+            --accent-color: #f6cb52;
+            --bg: #fffbe7;
+            --card-bg: #fff;
+            --shadow: 0 8px 32px rgba(0,0,0,0.11);
+            --radius: 18px;
         }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Montserrat', Arial, sans-serif;
-            background: var(--light-bg);
             margin: 0;
-            padding: 0;
-            color: #242424;
-        }
-        header {
-            background: linear-gradient(110deg, #6b4f1d 60%, #f7cb60 100%);
-            color: #fff;
-            padding: 52px 0 36px 0;
-            text-align: center;
-            position: relative;
-        }
-        header h1 {
-            font-size: 2.6em;
-            margin: 0;
-            letter-spacing: 1.5px;
-        }
-        header p {
-            font-size: 1.3em;
-            margin: 14px 0 0 0;
-            color: #f7cb60;
-            text-shadow: 0 2px 8px #6b4f1d66;
+            background: var(--bg);
+            color: #2d2d2d;
         }
         .hero {
-            margin: -42px auto 0 auto;
-            width: 92vw;
-            max-width: 900px;
-            background: var(--card-bg);
-            box-shadow: var(--shadow);
-            border-radius: 15px;
-            padding: 32px 18px 22px 18px;
-            position: relative;
-            top: 0;
-            z-index: 2;
-        }
-        .hero img {
-            width: 100%;
-            max-height: 320px;
-            object-fit: cover;
-            border-radius: 13px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 24px rgba(107,79,29,0.09);
-        }
-        .hero h2 {
-            color: var(--main-color);
-            margin-top: 0;
-        }
-        .cards {
+            width: 100vw;
+            min-height: 54vh;
+            background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 55px auto 15px auto;
-            max-width: 950px;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top:0;left:0;width:100%;height:100%;
+            background: linear-gradient(180deg,rgba(60,40,10,.2) 0%,rgba(60,40,10,.7) 80%);
+            z-index: 1;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            padding: 48px 24px 64px 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 2.6em;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+        .hero p {
+            font-size: 1.4em;
+            margin: 0 0 8px 0;
+            color: #ffeeb6;
+            text-shadow: 0 2px 8px #6b4f1d66;
+        }
+        .section {
+            max-width: 1100px;
+            margin: 44px auto 0 auto;
+            padding: 0 24px;
+        }
+        .section h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--main-color);
+            margin: 0 0 24px 0;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+            gap: 30px;
         }
         .card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: var(--radius);
+            overflow: hidden;
             box-shadow: var(--shadow);
-            padding: 0 0 18px 0;
-            width: 280px;
-            min-height: 220px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            transition: transform 0.21s;
-            overflow: hidden;
+            transition: transform .18s, box-shadow .18s;
+            cursor: pointer;
+            min-height: 350px;
+            position: relative;
         }
         .card:hover {
-            transform: translateY(-7px) scale(1.02);
-            box-shadow: 0 6px 20px rgba(107,79,29,.13);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(107,79,29,.13);
         }
         .card-img {
             width: 100%;
-            height: 130px;
+            height: 210px;
             object-fit: cover;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-            margin-bottom: 12px;
+            transition: filter .2s;
+        }
+        .card:hover .card-img {
+            filter: brightness(0.92) saturate(1.04);
+        }
+        .card-content {
+            padding: 22px 20px 18px 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
         .card-title {
-            font-size: 1.2em;
-            font-weight: bold;
+            font-size: 1.18em;
+            font-weight: 700;
             color: var(--main-color);
-            margin: 0 18px 8px 18px;
+            margin-bottom: 7px;
         }
         .card-desc {
+            color: #393939;
             font-size: 1em;
-            color: #333;
-            margin: 0 18px;
+            flex: 1;
         }
-        section {
-            max-width: 900px;
-            margin: 40px auto 0 auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            padding: 30px 20px 20px 20px;
-        }
-        section h2 {
-            color: var(--main-color);
-            margin-top: 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin: 10px 0;
+        @media (max-width: 800px) {
+            .hero-content { padding: 32px 10px 44px 10px; }
+            .section { padding: 0 8px; }
+            .section h2 { font-size: 1.14em;}
         }
         footer {
             text-align: center;
@@ -132,70 +129,97 @@
             color: #6b4f1d;
             font-size: 1.06em;
             margin-top: 50px;
-        }
-        @media (max-width: 900px) {
-            .hero, section { max-width: 97vw; }
-            .cards { flex-direction: column; align-items: center; }
-            .card { width: 92vw; max-width: 340px; }
+            border-radius: var(--radius) var(--radius) 0 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Bodh Gaya Travel Guide</h1>
-        <p>Discover the Spiritual Heart of India</p>
-    </header>
     <div class="hero">
-        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Mahabodhi Temple, Bodh Gaya">
-        <h2>Welcome to Bodh Gaya</h2>
-        <p>
-            Bodh Gaya is a serene town in Bihar, India, revered as the place where Prince Siddhartha attained enlightenment to become the Buddha. Rich in spiritual energy and home to ancient temples, Bodh Gaya is a must-visit for pilgrims and travelers seeking peace, history, and culture.
-        </p>
-    </div>
-    <div class="cards">
-        <div class="card">
-            <img class="card-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Mahabodhi Temple">
-            <div class="card-title">Mahabodhi Temple</div>
-            <div class="card-desc">A UNESCO World Heritage Site, this grand temple marks the very spot of Buddha's enlightenment and is the heart of Bodh Gaya.</div>
-        </div>
-        <div class="card">
-            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Bodhi_Tree%2C_Bodh_Gaya%2C_India.jpg" alt="Bodhi Tree">
-            <div class="card-title">Bodhi Tree</div>
-            <div class="card-desc">Sit beneath the sacred Bodhi Tree, believed to be a direct descendant of the original tree under which Buddha meditated.</div>
-        </div>
-        <div class="card">
-            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Great_Buddha_Statue%2C_Bodh_Gaya.jpg" alt="Great Buddha Statue">
-            <div class="card-title">Great Buddha Statue</div>
-            <div class="card-desc">Marvel at the 80-foot statue of Buddha in meditation, surrounded by beautiful gardens and carvings.</div>
-        </div>
-        <div class="card">
-            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Thai_monastery%2C_Bodh_Gaya%2C_India.jpg" alt="International Monasteries">
-            <div class="card-title">International Monasteries</div>
-            <div class="card-desc">Explore colorful and unique monasteries built by Buddhist communities from across the globe, each reflecting their homeland’s architecture.</div>
-        </div>
-        <div class="card">
-            <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Sujata_Kuti_Bodh_Gaya.jpg" alt="Sujata Kuti">
-            <div class="card-title">Sujata Kuti</div>
-            <div class="card-desc">Visit the peaceful site associated with Sujata, who offered milk-rice to Buddha just before his enlightenment.</div>
+        <div class="hero-content">
+            <h1>Best Places to Visit in Bodh Gaya</h1>
+            <p>Travel Inspiration &bull; Spiritual Landmarks &bull; Local Experiences</p>
+            <p style="font-size:1em;margin-top:10px;max-width:600px;">
+                Explore Bodh Gaya’s most inspiring sites, from the legendary Mahabodhi Temple where Buddha attained enlightenment, to tranquil monasteries and vibrant town life. Let these destination highlights guide your spiritual and cultural journey.
+            </p>
         </div>
     </div>
-    <section>
-        <h2>Travel Tips</h2>
+    <div class="section">
+        <h2>Top Attractions in Bodh Gaya</h2>
+        <div class="cards-grid">
+
+            <div class="card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Mahabodhi Temple, Bodh Gaya">
+                <div class="card-content">
+                    <div class="card-title">Mahabodhi Temple</div>
+                    <div class="card-desc">
+                        UNESCO World Heritage Site and the spiritual heart of Bodh Gaya, this grand temple marks the spot where Buddha attained enlightenment.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Bodhi_Tree%2C_Bodh_Gaya%2C_India.jpg" alt="Bodhi Tree">
+                <div class="card-content">
+                    <div class="card-title">Bodhi Tree</div>
+                    <div class="card-desc">
+                        Meditate under the sacred Bodhi Tree, a direct descendant of the tree under which Buddha meditated for 49 days.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Great_Buddha_Statue%2C_Bodh_Gaya.jpg" alt="Great Buddha Statue">
+                <div class="card-content">
+                    <div class="card-title">Great Buddha Statue</div>
+                    <div class="card-desc">
+                        An 80-foot statue of Buddha in deep meditation, this iconic monument is surrounded by peaceful gardens and smaller sculptures.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Thai_monastery%2C_Bodh_Gaya%2C_India.jpg" alt="International Monasteries">
+                <div class="card-content">
+                    <div class="card-title">International Monasteries</div>
+                    <div class="card-desc">
+                        Discover stunning monasteries built by Buddhist communities from Thailand, Japan, Bhutan, and more. Each showcases unique architecture and culture.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Sujata_Kuti_Bodh_Gaya.jpg" alt="Sujata Kuti Bodh Gaya">
+                <div class="card-content">
+                    <div class="card-title">Sujata Kuti</div>
+                    <div class="card-desc">
+                        Visit the tranquil site where Sujata offered Buddha a bowl of milk-rice, inspiring the Middle Path before his enlightenment.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Bodhgaya_Monks_India.jpg" alt="Local Life and Pilgrims">
+                <div class="card-content">
+                    <div class="card-title">Local Life & Pilgrims</div>
+                    <div class="card-desc">
+                        Experience Bodh Gaya’s vibrant markets, taste local Bihari cuisine, and meet pilgrims from around the world in this spiritual hub.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="section">
+        <h2>Travel Tips for Bodh Gaya</h2>
         <ul>
-            <li><b>Best time to visit:</b> October to March for pleasant weather and vibrant festivals.</li>
-            <li><b>Getting there:</b> Gaya Airport (12km) and Gaya Junction railway station offer excellent connectivity.</li>
-            <li><b>Local life:</b> Try local Bihari cuisine and shop for handicrafts in the bustling town markets.</li>
-            <li><b>Etiquette:</b> Dress modestly, remove shoes at temples, and respect local customs.</li>
+            <li><b>Best time to visit:</b> October to March for pleasant weather and festivals.</li>
+            <li><b>Getting there:</b> Fly into Gaya Airport (12km) or take a train to Gaya Junction.</li>
+            <li><b>Etiquette:</b> Dress modestly, remove shoes before entering temples, and be respectful of meditation areas.</li>
+            <li><b>Local experiences:</b> Join a meditation retreat, shop for handicrafts, or try authentic Bihari dishes.</li>
         </ul>
-    </section>
-    <section>
-        <h2>Plan Your Visit</h2>
-        <p>
-            Whether you are on a pilgrimage or simply seeking tranquility, Bodh Gaya offers a unique blend of spirituality, culture, and history. Wander among ancient monuments, meditate under the Bodhi Tree, and immerse yourself in the peaceful ambiance of this sacred destination.
-        </p>
-    </section>
+    </div>
     <footer>
-        &copy; 2025 bodhgaya.com &mdash; Your Guide to Bodh Gaya Travel
+        &copy; 2025 bodhgaya.com &mdash; Inspired by australia.com | Photos: Unsplash & Wikimedia Commons
     </footer>
 </body>
 </html>
