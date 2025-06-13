@@ -1,4 +1,5 @@
 import React from 'react';
+import exploreBanner from '../assets/images/bodh-gaya-1.jpg'; // adjust the path as needed
 
 function Explore() {
   return (
