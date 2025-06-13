@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bodh Gaya Travel Guide</title>
+  <title>Budh Gaya Travel Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Discover Bodh Gaya with a stunning, modern travel guide.">
+  <meta name="description" content="Discover Budh Gaya with a stylish, modern travel guide.">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Roboto:400,500&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #005fa3;
-      --accent: #f5a623;
+      --accent: #ffb347;
       --bg: #f5f6fa;
       --white: #fff;
-      --radius: 14px;
-      --shadow: 0 8px 40px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --shadow: 0 8px 40px rgba(0,0,0,0.09);
+      --hero-gradient: linear-gradient(120deg, #005fa3 0%, #ffb347 100%);
     }
     * { box-sizing: border-box; }
     body {
@@ -25,7 +26,6 @@
     header {
       background: var(--white);
       box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-      padding: 0 0 0 0;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -40,7 +40,7 @@
     }
     .logo {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.1em;
+      font-size: 2.2em;
       font-weight: 700;
       color: var(--primary);
       letter-spacing: 2px;
@@ -65,13 +65,15 @@
       text-decoration: none;
       font-size: 1em;
       padding: 6px 0;
-      transition: color .2s;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border .2s;
     }
     .nav-links a:hover {
       color: var(--primary);
+      border-bottom: 2px solid var(--accent);
     }
     .hero {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/2/28/Mahabodhi_Temple_Bodh_Gaya_Bihar.jpg') center/cover no-repeat;
+      background: var(--hero-gradient), url('https://upload.wikimedia.org/wikipedia/commons/2/28/Mahabodhi_Temple_Bodh_Gaya_Bihar.jpg') center/cover no-repeat;
       min-height: 420px;
       position: relative;
       border-radius: 0 0 var(--radius) var(--radius);
@@ -83,7 +85,7 @@
       content: "";
       position: absolute;
       left: 0; bottom: 0; width: 100%; height: 100%;
-      background: linear-gradient(180deg,rgba(0,41,82,0.06) 60%,rgba(0,41,82,0.75) 100%);
+      background: linear-gradient(180deg,rgba(0,41,82,0.11) 50%,rgba(0,41,82,0.8) 100%);
       z-index: 1;
       border-radius: 0 0 var(--radius) var(--radius);
     }
@@ -91,8 +93,14 @@
       position: relative;
       z-index: 2;
       color: #fff;
-      padding: 40px 32px 48px 42px;
-      max-width: 600px;
+      padding: 48px 32px 60px 52px;
+      max-width: 650px;
+      text-shadow: 0 4px 14px #0a0a0a60;
+      animation: fadein 1.2s;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(20px);}
+      to   { opacity: 1; transform: translateY(0);}
     }
     .hero-content h1 {
       font-size: 2.8em;
@@ -100,48 +108,54 @@
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
       letter-spacing: 2px;
+      color: #fff;
     }
     .hero-content p {
-      font-size: 1.25em;
-      color: #e5e7ea;
-      margin: 0 0 10px 0;
+      font-size: 1.35em;
+      color: #ffe;
+      margin: 0 0 14px 0;
       line-height: 1.5;
     }
     .quicklinks {
       display: flex;
       gap: 28px;
-      margin-top: 24px;
+      margin-top: 28px;
       flex-wrap: wrap;
     }
     .quicklink {
       background: var(--white);
       color: var(--primary);
-      padding: 8px 20px;
+      padding: 10px 26px;
       border-radius: 22px;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 2px 10px rgba(0,95,163,0.05);
-      transition: background .18s, color .18s;
+      box-shadow: 0 2px 10px rgba(0,95,163,0.07);
+      transition: background .18s, color .18s, transform .15s;
+      font-size: 1.08em;
+      border: none;
+      cursor: pointer;
     }
     .quicklink:hover {
       background: var(--primary);
       color: var(--white);
+      transform: translateY(-2px) scale(1.05);
     }
     .featured {
-      max-width: 1120px;
-      margin: 48px auto 0 auto;
+      max-width: 1200px;
+      margin: 58px auto 0 auto;
       display: flex;
       flex-wrap: wrap;
       gap: 36px;
       justify-content: center;
+      animation: fadein 1.2s;
     }
     .card {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
-      width: 340px;
-      min-height: 400px;
+      width: 360px;
+      min-height: 440px;
       display: flex;
       flex-direction: column;
       transition: transform .18s, box-shadow .18s;
@@ -150,25 +164,31 @@
     }
     .card:hover {
       transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 16px 46px rgba(0,95,163,0.14);
+      box-shadow: 0 16px 56px rgba(0,95,163,0.18);
+      border: 2.5px solid var(--accent);
     }
     .card-img {
       width: 100%;
-      height: 190px;
+      height: 210px;
       object-fit: cover;
+      filter: brightness(0.98) saturate(1.09);
+      transition: filter .2s;
+    }
+    .card:hover .card-img {
+      filter: brightness(0.93) saturate(1.2);
     }
     .card-content {
-      padding: 24px 22px 20px 22px;
+      padding: 26px 24px 20px 24px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
     .card-title {
-      font-size: 1.15em;
+      font-size: 1.18em;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 9px;
+      margin-bottom: 10px;
     }
     .card-desc {
       color: #343434;
@@ -185,9 +205,10 @@
       margin-top: 8px;
     }
     .explore-section {
-      max-width: 1100px;
-      margin: 60px auto 0 auto;
+      max-width: 1200px;
+      margin: 70px auto 0 auto;
       padding: 0 16px;
+      animation: fadein 1.7s;
     }
     .explore-section h2 {
       color: var(--primary);
@@ -210,10 +231,12 @@
       flex-direction: column;
       gap: 4px;
       min-height: 170px;
-      transition: box-shadow .18s;
+      transition: box-shadow .18s, border .18s;
+      border: 2px solid transparent;
     }
     .explore-card:hover {
       box-shadow: 0 14px 40px rgba(0,95,163,0.11);
+      border: 2px solid var(--accent);
     }
     .explore-title {
       font-size: 1.09em;
@@ -227,12 +250,13 @@
       margin-top: 7px;
     }
     .travel-details {
-      max-width: 1050px;
-      margin: 64px auto 0 auto;
+      max-width: 1100px;
+      margin: 80px auto 0 auto;
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 38px 28px 32px 28px;
+      animation: fadein 2.2s;
     }
     .travel-details h2 {
       color: var(--primary);
@@ -244,19 +268,69 @@
       margin-bottom: 10px;
       font-size: 1em;
     }
+    .gallery-section {
+      max-width: 1200px;
+      margin: 72px auto 0 auto;
+      padding: 0 16px;
+      animation: fadein 2.4s;
+    }
+    .gallery-section h2 {
+      color: var(--primary);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+    .gallery-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.11);
+      transition: transform .18s;
+    }
+    .gallery-img:hover {
+      transform: scale(1.06) rotate(-2deg);
+    }
+    .about-section {
+      max-width: 1000px;
+      margin: 70px auto 0 auto;
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 22px rgba(0,41,82,0.16);
+      padding: 38px 28px 32px 28px;
+      font-size: 1.13em;
+      animation: fadein 2.8s;
+    }
+    .about-section h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.5em;
+    }
+    .about-section ul {
+      margin: 18px 0 0 0;
+      padding: 0 0 0 14px;
+    }
     footer {
       background: #e5eaf1;
       color: #005fa3;
       text-align: center;
-      padding: 30px 0 24px 0;
+      padding: 34px 0 24px 0;
       font-size: 1.08em;
-      margin-top: 60px;
+      margin-top: 70px;
       border-radius: var(--radius) var(--radius) 0 0;
     }
     @media (max-width: 1100px) {
       .featured { gap: 20px;}
       .explore-section { padding: 0 4px;}
-      .travel-details { padding: 28px 8px 22px 8px;}
+      .travel-details, .about-section { padding: 28px 8px 22px 8px;}
     }
     @media (max-width: 800px) {
       .hero-content { padding: 36px 8px 40px 8px; }
@@ -267,29 +341,34 @@
       .nav { flex-direction: column; gap: 12px;}
       .hero-content h1 { font-size: 2em;}
       .explore-section h2 { font-size: 1.15em;}
+      .gallery-section h2 { font-size: 1.1em;}
     }
   </style>
 </head>
 <body>
   <header>
     <nav class="nav">
-      <a class="logo" href="#">bodhgaya<span>.com</span></a>
+      <a class="logo" href="#">budhgaya<span>.com</span></a>
       <div class="nav-links">
         <a href="#top-attractions">Attractions</a>
         <a href="#explore">Explore</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
         <a href="#travel-details">Travel Info</a>
       </div>
     </nav>
   </header>
   <div class="hero">
     <div class="hero-content">
-      <h1>Bodh Gaya Travel Guide</h1>
+      <h1>Budh Gaya Travel Guide</h1>
       <p>
-        Sacred, serene, and full of history—Bodh Gaya is where Buddha attained enlightenment. Discover world heritage temples, vibrant monasteries, and a spiritual atmosphere unlike anywhere else.
+        Sacred, serene, and full of history—Budh Gaya is where Buddha attained enlightenment. Discover world heritage temples, vibrant monasteries, and a spiritual atmosphere unlike anywhere else.
       </p>
       <div class="quicklinks">
         <a class="quicklink" href="#top-attractions">Top Attractions</a>
         <a class="quicklink" href="#explore">What to Explore</a>
+        <a class="quicklink" href="#gallery">Gallery</a>
+        <a class="quicklink" href="#about">About</a>
         <a class="quicklink" href="#travel-details">Plan Your Trip</a>
       </div>
     </div>
@@ -323,7 +402,7 @@
   </div>
 
   <div class="explore-section" id="explore">
-    <h2>What to Explore in Bodh Gaya</h2>
+    <h2>What to Explore in Budh Gaya</h2>
     <div class="explore-list">
       <div class="explore-card">
         <div class="explore-title">International Monasteries</div>
@@ -347,24 +426,51 @@
       </div>
       <div class="explore-card">
         <div class="explore-title">Pilgrim Life</div>
-        <div class="explore-desc">Witness or join the rituals of pilgrims from across Asia, making Bodh Gaya a truly international town.</div>
+        <div class="explore-desc">Witness or join the rituals of pilgrims from across Asia, making Budh Gaya a truly international town.</div>
       </div>
     </div>
   </div>
 
+  <div class="gallery-section" id="gallery">
+    <h2>Budh Gaya in Pictures</h2>
+    <div class="gallery-grid">
+      <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Mahabodhi_Temple_Bodh_Gaya_Bihar.jpg" alt="Mahabodhi Temple - Gallery">
+      <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Bodhi_Tree%2C_Bodh_Gaya%2C_India.jpg" alt="Bodhi Tree - Gallery">
+      <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Great_Buddha_Statue%2C_Bodh_Gaya.jpg" alt="Great Buddha Statue - Gallery">
+      <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Thai_monastery%2C_Bodh_Gaya%2C_India.jpg" alt="Thai Monastery - Gallery">
+      <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Sujata_Kuti_Bodh_Gaya.jpg" alt="Sujata Kuti - Gallery">
+      <img class="gallery-img" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Bodhgaya_Monks_India.jpg" alt="Monks in Budh Gaya - Gallery">
+    </div>
+  </div>
+
+  <div class="about-section" id="about">
+    <h2>About Budh Gaya</h2>
+    <p>
+      Budh Gaya, in the Indian state of Bihar, is one of the world’s most important Buddhist pilgrimage centres. It is the place where Gautama Buddha attained enlightenment beneath the sacred Bodhi Tree. Today, pilgrims, monks, and travellers from all over the world gather here to meditate, learn, and experience the spiritual atmosphere of this UNESCO World Heritage Site.
+    </p>
+    <ul>
+      <li><b>Location:</b> Bihar, India</li>
+      <li><b>Spiritual Significance:</b> Site of Buddha’s enlightenment</li>
+      <li><b>Language:</b> Hindi, English, plus many international visitors</li>
+      <li><b>Climate:</b> Pleasant and cool October-March; very hot April-June; monsoon July-September</li>
+      <li><b>Must-try Dishes:</b> Litti chokha, samosas, momos, and sweets from local stalls</li>
+      <li><b>Fun Fact:</b> The Mahabodhi Temple Complex is over 1,500 years old and still a living centre of worship and meditation</li>
+    </ul>
+  </div>
+
   <div class="travel-details" id="travel-details">
-    <h2>Plan Your Bodh Gaya Trip</h2>
+    <h2>Plan Your Budh Gaya Trip</h2>
     <ul class="travel-list">
       <li><b>Best Time to Visit:</b> October to March for cool, pleasant weather and lively festivals.</li>
       <li><b>Getting There:</b> The nearest airport is Gaya (12km); Gaya Junction is the main railhead. Taxis, auto-rickshaws, and cycle rickshaws are available locally.</li>
       <li><b>Where to Stay:</b> Choose from guesthouses, monastery stays, budget hotels, and a few mid-range options.</li>
       <li><b>Food & Drink:</b> Enjoy Bihari food, Indian vegetarian fare, and Tibetan/Thai dishes at cafes and markets.</li>
       <li><b>Etiquette:</b> Dress modestly, remove shoes in temples, ask before taking photos of monks or prayer spaces.</li>
-      <li><b>Safety:</b> Bodh Gaya is generally safe, but take care with belongings and avoid isolated areas at night.</li>
+      <li><b>Safety:</b> Budh Gaya is generally safe, but take care with belongings and avoid isolated areas at night.</li>
     </ul>
   </div>
   <footer>
-    &copy; 2025 bodhgaya.com &mdash; Inspired by Lonely Planet | Photos: Wikimedia Commons (public domain/CC BY-SA)
+    &copy; 2025 budhgaya.com &mdash; Inspired by Lonely Planet | Photos: Wikimedia Commons (public domain/CC BY-SA)
   </footer>
 </body>
 </html>
