@@ -73,19 +73,29 @@
       border-bottom: 2px solid var(--accent);
     }
     .hero {
-      background: var(--hero-gradient), url('https://upload.wikimedia.org/wikipedia/commons/2/28/Mahabodhi_Temple_Bodh_Gaya_Bihar.jpg') center/cover no-repeat;
-      min-height: 420px;
       position: relative;
-      border-radius: 0 0 var(--radius) var(--radius);
+      min-height: 480px;
       display: flex;
       align-items: flex-end;
       justify-content: left;
+      border-radius: 0 0 var(--radius) var(--radius);
+      overflow: hidden;
+      background: var(--hero-gradient);
+    }
+    .hero-bg-img {
+      position: absolute;
+      z-index: 0;
+      left: 0; top: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: brightness(0.82) saturate(1.07) blur(0.5px);
+      transition: filter .3s;
     }
     .hero::after {
       content: "";
       position: absolute;
       left: 0; bottom: 0; width: 100%; height: 100%;
-      background: linear-gradient(180deg,rgba(0,41,82,0.11) 50%,rgba(0,41,82,0.8) 100%);
+      background: linear-gradient(180deg,rgba(0,41,82,0.21) 40%,rgba(0,41,82,0.8) 100%);
       z-index: 1;
       border-radius: 0 0 var(--radius) var(--radius);
     }
@@ -109,6 +119,10 @@
       font-weight: 700;
       letter-spacing: 2px;
       color: #fff;
+      background: rgba(0,0,0,0.16);
+      padding: 0.08em 0.3em 0.08em 0.2em;
+      border-radius: 6px;
+      display: inline-block;
     }
     .hero-content p {
       font-size: 1.35em;
@@ -359,10 +373,11 @@
     </nav>
   </header>
   <div class="hero">
+    <img src="![image1](image1)" alt="Great Buddha Statue Budh Gaya" class="hero-bg-img">
     <div class="hero-content">
       <h1>Budh Gaya Travel Guide</h1>
       <p>
-        Sacred, serene, and full of history—Bodh Gaya is where Buddha attained enlightenment. Discover world heritage temples, vibrant monasteries, and a spiritual atmosphere unlike anywhere else.
+        Sacred, serene, and full of history—Budh Gaya is where Buddha attained enlightenment. Discover world heritage temples, vibrant monasteries, and a spiritual atmosphere unlike anywhere else.
       </p>
       <div class="quicklinks">
         <a class="quicklink" href="#top-attractions">Top Attractions</a>
@@ -444,7 +459,7 @@
   </div>
 
   <div class="about-section" id="about">
-    <h2>About Bodh Gaya</h2>
+    <h2>About Budh Gaya</h2>
     <p>
       Budh Gaya, in the Indian state of Bihar, is one of the world’s most important Buddhist pilgrimage centres. It is the place where Gautama Buddha attained enlightenment beneath the sacred Bodhi Tree. Today, pilgrims, monks, and travellers from all over the world gather here to meditate, learn, and experience the spiritual atmosphere of this UNESCO World Heritage Site.
     </p>
