@@ -1,0 +1,23 @@
+.events-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.events-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.events-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.events-section li {
+  margin: 10px 0;
+}

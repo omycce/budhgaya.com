@@ -1,0 +1,22 @@
+/* CSS for ScrollToTop button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: linear-gradient(120deg, #005fa3 0%, #ffb347 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2em;
+  box-shadow: 0 4px 24px #005fa344;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background .2s, box-shadow .2s;
+}
+.scroll-to-top:hover {
+  background: #ffb347;
+  color: #005fa3;
+  box-shadow: 0 8px 32px #ffb34755;
+}   

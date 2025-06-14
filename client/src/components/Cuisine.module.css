@@ -1,0 +1,23 @@
+.cuisine-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.cuisine-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.cuisine-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cuisine-section li {
+  margin: 10px 0;
+}

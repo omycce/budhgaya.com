@@ -1,0 +1,90 @@
+.featuredSection {
+    padding: 4rem 2rem;
+    background: #f4f4f4; /* Light gray background for a clean look */
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cardImageWrapper {
+    position: relative;
+}
+
+.cardImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid #0078a8; /* Lonely Planet's blue accent */
+}
+
+.cardImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.card:hover .cardImageOverlay {
+    opacity: 1;
+}
+
+.cardContent {
+    padding: 1.5rem;
+}
+
+.cardTitle {
+    font-family: 'Roboto', sans-serif; /* Modern font similar to Lonely Planet */
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0078a8; /* Lonely Planet's blue accent */
+}
+
+.cardDesc {
+    font-size: 1rem;
+    color: #555; /* Dark gray for readability */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.cardLink {
+    display: inline-block;
+    color: #0078a8; /* Blue accent for links */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cardLink:hover {
+    color: #005f85; /* Darker blue for hover effect */
+}
+
+.sectionTitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #333; /* Neutral dark gray for titles */
+}

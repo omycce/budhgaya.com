@@ -12,8 +12,8 @@ function Header() {
           <a href="#about">About</a>
           <a href="#cuisine">Cuisine</a>
           <a href="#events">Events</a>
-          <a href="#faq">FAQ</a>
-          <a href="#travel-details">Travel Info</a>
+          <a href="#faq">FAQ</a>          {/* Make sure this matches the ID in FAQ component */}
+          <a href="#travel-details">Travel Info</a>  {/* Make sure this matches the ID in TravelDetails component */}
         </div>
       </nav>
     </header>

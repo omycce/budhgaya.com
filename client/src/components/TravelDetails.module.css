@@ -1,0 +1,56 @@
+.travelDetails {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    scroll-margin-top: 80px;
+    background: #f9f9f9; /* Light background for better readability */
+    border-radius: 12px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.travelList {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.travelItem {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.travelItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.itemTitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0078a8; /* Blue accent for emphasis */
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .travelList {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+    }
+
+    .sectionTitle {
+        font-size: 2rem; /* Adjust title size for mobile */
+    }
+}

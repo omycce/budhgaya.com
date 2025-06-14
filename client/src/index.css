@@ -1,0 +1,168 @@
+/* client/src/index.css */
+
+/* Reset and Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+main {
+  min-height: 100vh;
+}
+
+section {
+  padding: 4rem 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+/* Header */
+.main-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+}
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #ff6f00;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 70vh; /* Adjust height for better visibility */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://example.com/your-image.jpg') center center no-repeat; /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire section */
+  color: #fff;
+  text-align: center;
+}
+.hero-content {
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+.hero-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.quicklinks {
+  margin-top: 20px;
+}
+.quicklinks a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #ff6f00;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.quicklinks a:hover {
+  color: #fff;
+}
+
+/* Card Layout for Sections like Featured or Gallery */
+.section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff6f00;
+  display: inline-block;
+}
+.card {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin: 20px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #ccc;
+  padding: 40px;
+  text-align: center;
+}
+
+footer a {
+  color: #ff6f00;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 15px 20px;
+  }
+  .nav-links a {
+    margin: 0 10px;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .section {
+    padding: 40px 10px;
+  }
+  .featured-section {
+    grid-template-columns: 1fr;
+  }
+}
