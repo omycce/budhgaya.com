@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+import './App.css';
 import Header from './Header';
 import Hero from './Hero';
 import Featured from './Featured';
@@ -15,8 +17,16 @@ import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 
 function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang') || 'en'; // Default to English
+    i18n.changeLanguage(lang); // Change language dynamically
+  }, [i18n]);
+
   return (
-    <>
+    <div className="App">
       <Helmet>
         <title>Bodh Gaya Tourism - Buddhist Pilgrimage Site & Travel Guide</title>
         <meta name="description" content="Discover Bodh Gaya, India's sacred Buddhist pilgrimage site. Plan your visit to Mahabodhi Temple, explore local cuisine, find accommodation, and learn about cultural events." />
@@ -42,7 +52,7 @@ function App() {
       </main>
       <Footer />
       <ScrollToTop />
-    </>
+    </div>
   );
 }
 

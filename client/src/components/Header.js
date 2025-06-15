@@ -10,7 +10,7 @@ function Header() {
                         Budh<span className={styles.logoHighlight}>Gaya</span>
                     </span>
                     <span className={styles.logoDomain}>.com</span>
-                    <span className={styles.logoTagline}>Land of Enlightenment</span>
+                   
                 </a>
                 <div className={styles.navLinks}>
                     <a href="#top-attractions">Attractions</a>
