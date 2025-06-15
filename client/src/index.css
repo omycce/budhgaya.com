@@ -1,18 +1,33 @@
 /* client/src/index.css */
 
 /* Reset and Global Styles */
+:root {
+  /* Lonely Planet Color Palette */
+  --color-primary: #297CBB;      /* Blue */
+  --color-secondary: #FF4F5E;    /* Coral */
+  --color-accent: #FFC700;       /* Yellow */
+  --color-dark: #1A1A1A;         /* Almost Black */
+  --color-gray-dark: #4A4A4A;
+  --color-gray: #767676;
+  --color-gray-light: #F4F4F4;
+  --color-white: #FFFFFF;
+  
+  /* Typography */
+  --font-heading: "Calibre", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "freight-text-pro", Georgia, serif;
+}
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  background-color: #f9f9f9;
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  line-height: 1.6;
+  background-color: var(--color-white);
 }
 
 main {
@@ -24,8 +39,9 @@ section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 h2 {
@@ -47,7 +63,7 @@ h2 {
   justify-content: space-between;
 }
 .logo {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: bold;
   color: #222;
@@ -81,7 +97,7 @@ h2 {
   border-radius: 8px;
 }
 .hero-content h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-heading);
   font-size: 3rem;
   margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -111,24 +127,72 @@ h2 {
   margin: 0 auto;
 }
 .section h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   margin-bottom: 20px;
   border-bottom: 2px solid #ff6f00;
   display: inline-block;
 }
 .card {
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  margin: 20px;
+  background: var(--color-white);
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
 }
+
+/* Common Components */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-dark);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-gray);
+  margin-bottom: 2rem;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}       
 
 /* Footer */
 footer {
@@ -164,5 +228,12 @@ footer a:hover {
   }
   .featured-section {
     grid-template-columns: 1fr;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
   }
 }

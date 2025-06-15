@@ -1,5 +1,9 @@
 import React from 'react';
 import styles from './Featured.module.css';
+// Import images
+import mahabodhiTemple from '../assets/images/mahabodhi-temple.jpg';
+import bodhiTree from '../assets/images/bodhi-tree.jpg';
+import buddhaStatue from '../assets/images/buddha-statue.jpg';
 
 function Featured() {
   return (
@@ -10,10 +14,9 @@ function Featured() {
           <div className={styles.cardImageWrapper}>
             <img 
               className={styles.cardImage} 
-              src="https://upload.wikimedia.org/wikipedia/commons/2/28/Mahabodhi_Temple_Bodh_Gaya_Bihar.jpg" 
+              src={mahabodhiTemple}
               alt="Mahabodhi Temple" 
             />
-            <div className={styles.cardImageOverlay} />
           </div>
           <div className={styles.cardContent}>
             <div className={styles.cardTitle}>Mahabodhi Temple</div>
@@ -22,9 +25,7 @@ function Featured() {
             </div>
             <a 
               className={styles.cardLink} 
-              href="https://en.wikipedia.org/wiki/Mahabodhi_Temple" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="#mahabodhi-temple"
             >
               Learn More
             </a>
@@ -35,10 +36,9 @@ function Featured() {
           <div className={styles.cardImageWrapper}>
             <img 
               className={styles.cardImage} 
-              src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Bodhi_Tree%2C_Bodh_Gaya%2C_India.jpg" 
+              src={bodhiTree}
               alt="Bodhi Tree" 
             />
-            <div className={styles.cardImageOverlay} />
           </div>
           <div className={styles.cardContent}>
             <div className={styles.cardTitle}>Bodhi Tree</div>
@@ -47,9 +47,7 @@ function Featured() {
             </div>
             <a 
               className={styles.cardLink} 
-              href="https://en.wikipedia.org/wiki/Bodhi_Tree" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="#bodhi-tree"
             >
               Read More
             </a>
@@ -60,10 +58,9 @@ function Featured() {
           <div className={styles.cardImageWrapper}>
             <img 
               className={styles.cardImage} 
-              src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Great_Buddha_Statue%2C_Bodh_Gaya.jpg" 
+              src={buddhaStatue}
               alt="Great Buddha Statue" 
             />
-            <div className={styles.cardImageOverlay} />
           </div>
           <div className={styles.cardContent}>
             <div className={styles.cardTitle}>Great Buddha Statue</div>
@@ -72,9 +69,7 @@ function Featured() {
             </div>
             <a 
               className={styles.cardLink} 
-              href="https://en.wikipedia.org/wiki/Great_Buddha_(Bodh_Gaya)" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="#buddha-statue"
             >
               See Details
             </a>

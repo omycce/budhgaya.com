@@ -1,90 +1,94 @@
-.featuredSection {
-    padding: 4rem 2rem;
-    background: #f4f4f4; /* Light gray background for a clean look */
+﻿.featuredSection {
+    padding: 6rem 0;
+    background: var(--color-gray-light);
+    background-image: url('../assets/images/pattern-bg.jpg');
+    background-blend-mode: overlay;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
 .cardGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
+    padding: 0 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .card {
-    background: #fff;
+    background: var(--color-white);
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
 }
 
 .cardImageWrapper {
     position: relative;
+    padding-top: 66.67%;
+    overflow: hidden;
 }
 
 .cardImage {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 4px solid #0078a8; /* Lonely Planet's blue accent */
-}
-
-.cardImageOverlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    transition: opacity 0.3s ease;
-    opacity: 0;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.card:hover .cardImageOverlay {
-    opacity: 1;
+.card:hover .cardImage {
+    transform: scale(1.05);
 }
 
 .cardContent {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .cardTitle {
-    font-family: 'Roboto', sans-serif; /* Modern font similar to Lonely Planet */
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #0078a8; /* Lonely Planet's blue accent */
+    color: var(--color-dark);
 }
 
 .cardDesc {
-    font-size: 1rem;
-    color: #555; /* Dark gray for readability */
+    color: var(--color-gray);
+    margin-bottom: 1.5rem;
     line-height: 1.6;
-    margin-bottom: 1rem;
 }
 
 .cardLink {
-    display: inline-block;
-    color: #0078a8; /* Blue accent for links */
-    font-weight: bold;
+    color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
 }
 
-.cardLink:hover {
-    color: #005f85; /* Darker blue for hover effect */
+.cardLink::after {
+    content: '→';
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.cardLink:hover::after {
+    transform: translateX(5px);
 }
 
 .sectionTitle {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-heading);
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #333; /* Neutral dark gray for titles */
+    color: var(--color-dark);
 }
