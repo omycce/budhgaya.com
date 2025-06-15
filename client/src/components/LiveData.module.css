@@ -1,15 +1,17 @@
 .liveData {
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-  background: #f8f9fa;
-  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 300px;
+  margin: 1rem auto;
 }
 
 .liveData h2 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
 .loading, 
@@ -40,11 +42,10 @@
 }
 
 .weatherCard {
-  background: white;
-  padding: 2rem;
+  background-color: #fff;
+  padding: 1rem;
   border-radius: 8px;
-  margin: 1rem 0;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .weatherCard h3 {
@@ -52,6 +53,17 @@
   color: #2c3e50;
   text-align: center;
   font-size: 1.5rem;
+}
+
+.weatherCard p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.weatherCard strong {
+  font-size: 1.5rem;
+  color: #333;
 }
 
 .weatherInfo {
