@@ -1,17 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import './Cuisine.module.css';
+import styles from './Cuisine.module.css';
 
 function Cuisine() {
   return (
-      <section className="cuisine-section" id="cuisine">
-          <h2>Local Cuisine to Try in Bodh Gaya</h2>
-          <ul>
-              <li><b>Litti Chokha:</b> Roasted wheat balls stuffed with spiced gram flour, served with mashed vegetables.</li>
-              <li><b>Momos:</b> Tibetan-style dumplings, popular in local markets.</li>
-              <li><b>Samosas & Sweets:</b> Try fresh samosas and local sweets like peda and jalebi.</li>
-              <li><b>Thukpa:</b> A hearty noodle soup, perfect for cool evenings.</li>
-          </ul>
+    <section className={styles.cuisineSection} id="cuisine">
       <Helmet>
         <title>Local Cuisine of Bodh Gaya | Must-Try Food in Bodh Gaya</title>
         <meta
@@ -23,12 +16,24 @@ function Cuisine() {
           content="Bodh Gaya, local cuisine, food, Litti Chokha, Momos, Samosas, Thukpa, sweets"
         />
       </Helmet>
-      <h2>Local Cuisine to Try in Bodh Gaya</h2>
-      <ul>
-        <li><b>Litti Chokha:</b> Roasted wheat balls stuffed with spiced gram flour, served with mashed vegetables.</li>
-        <li><b>Momos:</b> Tibetan-style dumplings, popular in local markets.</li>
-        <li><b>Samosas & Sweets:</b> Try fresh samosas and local sweets like peda and jalebi.</li>
-        <li><b>Thukpa:</b> A hearty noodle soup, perfect for cool evenings.</li>
+      <h2 className={styles.cuisineTitle}>Local Cuisine to Try in Bodh Gaya</h2>
+      <ul className={styles.cuisineList}>
+        <li className={styles.cuisineItem}>
+          <b>Litti Chokha</b>
+          <p>Roasted wheat balls stuffed with spiced gram flour, served with mashed vegetables.</p>
+        </li>
+        <li className={styles.cuisineItem}>
+          <b>Momos</b>
+          <p>Tibetan-style dumplings, popular in local markets.</p>
+        </li>
+        <li className={styles.cuisineItem}>
+          <b>Samosas & Sweets</b>
+          <p>Try fresh samosas and local sweets like peda and jalebi.</p>
+        </li>
+        <li className={styles.cuisineItem}>
+          <b>Thukpa</b>
+          <p>A hearty noodle soup, perfect for cool evenings.</p>
+        </li>
       </ul>
     </section>
   );

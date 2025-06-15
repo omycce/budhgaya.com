@@ -1,9 +1,17 @@
 import React from 'react';
+import { Helmet } from 'react-helmet'; // Add this import
 import styles from './FAQ.module.css';
 
 function FAQ() {
   return (
     <div className={styles.faqSection} id="faq">
+      <Helmet>
+        <title>Frequently Asked Questions | Bodh Gaya Tourism</title>
+        <meta
+          name="description"
+          content="Get answers to common questions about visiting Bodh Gaya. Learn about safety, best times to visit, and food options."
+        />
+      </Helmet>
       <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
       <ul className={styles.faqList}>
         <li className={styles.faqItem}>

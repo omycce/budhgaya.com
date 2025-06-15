@@ -1,0 +1,128 @@
+.liveData {
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.liveData h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.loading, 
+.error {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.loading p,
+.error p {
+  margin: 0.5rem 0;
+}
+
+.loading {
+  background-color: #e8f4f8;
+  border: 1px solid #b8e2f2;
+  color: #0c5460;
+}
+
+.error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.weatherCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.weatherCard h3 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.weatherInfo {
+  margin: 1.5rem 0;
+}
+
+.weatherInfo p {
+  margin: 0.75rem 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.weatherUpdate {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.currencyCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.newsSection {
+  margin-top: 2rem;
+}
+
+.newsItem {
+  background: white;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.newsItem h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.newsItem a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.newsItem a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .liveData {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  .weatherCard {
+    padding: 1.5rem;
+  }
+  
+  .weatherInfo p {
+    flex-direction: column;
+    text-align: center;
+  }
+}

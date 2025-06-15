@@ -1,32 +1,39 @@
 {
-  "name": "budhgaya.com",
+  "name": "budhgaya-tourism",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bodh Gaya Tourism Website with Live Weather and Travel Information",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/omycce/budhgaya.com.git"
   },
   "license": "ISC",
   "author": "",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.11.2",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "dotenv": "^16.3.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rm -rf node_modules package-lock.json",
+    "reinstall": "npm run clean && npm install"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-router-dom": "^7.6.2"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.29.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-react": "^7.37.5",
-    "globals": "^16.2.0",
-    "react-scripts": "^5.0.1",
-    "typescript-eslint": "^8.34.0"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -39,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2"
   }
 }
