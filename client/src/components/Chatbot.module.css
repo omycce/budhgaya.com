@@ -1,0 +1,63 @@
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatWindow {
+  padding: 1rem;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.userMessage {
+  background-color: #0078a8;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+.botMessage {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.inputArea {
+  display: flex;
+  padding: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.sendButton {
+  background-color: #0078a8;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.sendButton:hover {
+  background-color: #005f87;
+}

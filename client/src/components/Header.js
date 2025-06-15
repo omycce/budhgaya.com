@@ -10,7 +10,6 @@ function Header() {
                         Budh<span className={styles.logoHighlight}>Gaya</span>
                     </span>
                     <span className={styles.logoDomain}>.com</span>
-                   
                 </a>
                 <div className={styles.navLinks}>
                     <a href="#top-attractions">Attractions</a>
@@ -20,7 +19,7 @@ function Header() {
                     <a href="#cuisine">Cuisine</a>
                     <a href="#events">Events</a>
                     <a href="#faq">FAQ</a>
-                    <a href="#travel-details">Travel Info</a>
+                    <a href="#travel-details">Travel</a> {/* Added Travel link */}
                 </div>
             </nav>
         </header>

@@ -17,6 +17,10 @@
   --font-body: "freight-text-pro", Georgia, serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;

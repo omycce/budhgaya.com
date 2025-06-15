@@ -1,19 +1,50 @@
 .travelDetails {
-    padding: 4rem 2rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
     max-width: 1200px;
-    margin: 0 auto;
-    scroll-margin-top: 80px;
-    background: #f9f9f9; /* Light background for better readability */
-    border-radius: 12px; /* Rounded corners for a modern look */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.travelDetails h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.travelDetails ul {
+    list-style: none;
+    padding: 0;
+}
+
+.travelDetails li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.travelDetails ul ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.travelDetails a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.travelDetails a:hover {
+    text-decoration: underline;
 }
 
 .travelList {
-    list-style: none;
-    padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    padding: 0;
+    list-style: none;
 }
 
 .travelItem {
@@ -33,7 +64,7 @@
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #0078a8; /* Blue accent for emphasis */
+    color: #0078a8;
     margin-bottom: 0.5rem;
 }
 
@@ -47,10 +78,14 @@
 
 @media (max-width: 768px) {
     .travelList {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
+        grid-template-columns: 1fr;
     }
 
     .sectionTitle {
-        font-size: 2rem; /* Adjust title size for mobile */
+        font-size: 2rem;
+    }
+
+    .travelDetails h2 {
+        font-size: 2rem;
     }
 }
