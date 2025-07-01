@@ -1,54 +1,75 @@
 .hero {
-    height: 80vh;
+    height: 100vh; /* Full viewport height */
     position: relative;
-    background: url('../assets/images/bodh-gaya-1.jpg') center center no-repeat;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.6)
+    ), url('../assets/images/bodh-gaya-1.jpg') center center no-repeat;
+    background-size: cover; /* Ensure the image covers the entire section */
     color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 0; /* Remove margin */
+    animation: zoomInOut 15s ease-in-out infinite; /* Smooth zoom animation */
+}
+
+@keyframes zoomInOut {
+    0% {
+        background-size: 100%; /* Initial size */
+    }
+    50% {
+        background-size: 120%; /* Zoom in */
+    }
+    100% {
+        background-size: 100%; /* Zoom out */
+    }
 }
 
 .heroContent {
-  max-width: 800px;
-  padding: 0 2rem;
+    max-width: 800px;
+    padding: 0 2rem;
+    z-index: 2; /* Ensure content is above the background */
 }
 
 .heroTitle {
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.1;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: #f4a261; /* Use a warm accent color */
 }
 
 .heroSubtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    color: #ffffff; /* Ensure readability */
 }
 
 .heroCta {
-  display: inline-block;
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: 1rem 2.5rem;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.3s ease;
+    display: inline-block;
+    background: #f4a261; /* Warm accent color */
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .heroCta:hover {
-  transform: translateY(-2px);
+    transform: translateY(-2px);
+    background-color: #e76f51; /* Darker shade on hover */
 }
 
 @media (max-width: 768px) {
-  .heroTitle {
-    font-size: 2.5rem;
-  }
-  
-  .heroSubtitle {
-    font-size: 1.2rem;
-  }
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+    
+    .heroSubtitle {
+        font-size: 1.2rem;
+    }
 }
