@@ -1,6 +1,7 @@
 // Simple Express server to serve the React app built into `server/build`
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -9,35 +10,26 @@ const PORT = process.env.PORT || 8080;
 const buildPath = path.join(__dirname, 'build');
 app.use(express.static(buildPath));
 
-// All remaining requests return the React app, so client-side routing works
-app.get('*', (req, res) => {
-	res.sendFile(path.join(buildPath, 'index.html'));
-});
-
 // Health endpoint for Cloud Run / health checks
 app.get('/health', (req, res) => res.status(200).send('OK'));
+
+// All remaining requests return the React app, so client-side routing works
+app.get('*', (req, res) => {
+	const indexFile = path.join(buildPath, 'index.html');
+	if (!fs.existsSync(indexFile)) {
+		return res.status(500).send('Client build not found.');
+	}
+	res.sendFile(indexFile);
+});
 
 // Start server and bind to 0.0.0.0 so Cloud Run can reach it
 const LISTEN_HOST = process.env.LISTEN_HOST || '0.0.0.0';
 app.listen(PORT, LISTEN_HOST, () => {
 	console.log(`Server listening on ${LISTEN_HOST}:${PORT}`);
-	const fs = require('fs');
-	const buildPath = path.join(__dirname, 'build');
-	if (!fs.existsSync(buildPath)) {
-		console.warn('Warning: build folder not found at', buildPath);
-	} else {
-		try {
-			const files = fs.readdirSync(buildPath);
-			console.log('Build folder contents sample:', files.slice(0,10));
-		} catch (err) {
-			console.warn('Could not read build folder contents:', err.message);
-		}
+	try {
+		const files = fs.existsSync(buildPath) ? fs.readdirSync(buildPath) : [];
+		console.log('Build folder contents sample:', files.slice(0, 10));
+	} catch (err) {
+		console.warn('Could not read build folder contents:', err.message);
 	}
 });
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './App.css';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);

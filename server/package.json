@@ -8,6 +8,6 @@
     "build-client": "npm --prefix ../client run build && rm -rf build && cp -r ../client/build ./build"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.18.2"
   }
 }
