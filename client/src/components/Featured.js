@@ -9,8 +9,8 @@ function Featured() {
   return (
     <div className={styles.featuredSection} id="top-attractions">
       <h2 className={styles.sectionTitle}>Top Attractions</h2>
-      <div className={styles.cardGrid}>
-        <div className={styles.card}>
+      <div className={`${styles.cardGrid} fade-up`}>
+        <div className={`${styles.card} fade-up`}>
           <div className={styles.cardImageWrapper}>
             <img 
               className={styles.cardImage} 
@@ -30,9 +30,9 @@ function Featured() {
               Learn More
             </a>
           </div>
-        </div>
+  </div>
 
-        <div className={styles.card}>
+  <div className={`${styles.card} fade-up`}>
           <div className={styles.cardImageWrapper}>
             <img 
               className={styles.cardImage} 
@@ -52,9 +52,9 @@ function Featured() {
               Read More
             </a>
           </div>
-        </div>
+  </div>
 
-        <div className={styles.card}>
+  <div className={`${styles.card} fade-up`}>
           <div className={styles.cardImageWrapper}>
             <img 
               className={styles.cardImage} 

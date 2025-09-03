@@ -45,11 +45,14 @@ function Gallery() {
       <h2 className={styles.sectionTitle}>Photo Gallery</h2>
       <div className={styles.galleryGrid}>
         {galleryItems.map((item) => (
-          <div key={item.id} className={styles.galleryItem}>
+          <div key={item.id} className={`${styles.galleryItem} fade-up`}>
             <img
               src={item.image}
+              srcSet={`${item.image} 1x, ${item.external} 2x`}
               alt={item.title}
               className={styles.galleryImage}
+              loading="lazy"
+              decoding="async"
               onError={(e) => { e.target.onerror = null; e.target.src = item.external; }}
             />
             <div className={styles.galleryOverlay}>
@@ -59,7 +62,7 @@ function Gallery() {
           </div>
         ))}
       </div>
-      <p className={styles.attribution}>Photos: Courtesy of <a href="https://bodhgayatemple.com" target="_blank" rel="noopener">Bodhgaya Temple</a></p>
+  <p className={styles.attribution}>Photos: Courtesy of <a href="https://bodhgayatemple.com" target="_blank" rel="noopener noreferrer">Bodhgaya Temple</a></p>
     </section>
   );
 }

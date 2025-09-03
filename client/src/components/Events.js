@@ -1,4 +1,5 @@
-﻿import React from 'react';
+﻿/* eslint-disable unicode-bom */
+import React from 'react';
 import styles from './Events.module.css';
 
 function Events() {

@@ -11,6 +11,38 @@ function FAQ() {
           name="description"
           content="Get answers to common questions about visiting Bodh Gaya. Learn about safety, best times to visit, and food options."
         />
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Bodh Gaya safe for tourists?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, Bodh Gaya is generally safe, but take standard precautions with your belongings."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the best time to visit?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "October to March for pleasant weather and festivals."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are there vegetarian food options?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, there are many vegetarian and vegan options available."
+                }
+              }
+            ]
+          }`}
+        </script>
       </Helmet>
       <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
       <ul className={styles.faqList}>

@@ -2,19 +2,21 @@
 
 /* Reset and Global Styles */
 :root {
-  /* Lonely Planet Color Palette */
-  --color-primary: #297CBB;      /* Blue */
-  --color-secondary: #FF4F5E;    /* Coral */
-  --color-accent: #FFC700;       /* Yellow */
-  --color-dark: #1A1A1A;         /* Almost Black */
-  --color-gray-dark: #4A4A4A;
-  --color-gray: #767676;
-  --color-gray-light: #F4F4F4;
-  --color-white: #FFFFFF;
-  
+  /* Lonely Planet-like color palette */
+  --color-primary: #0072CE;      /* Signature blue (Lonely Planet-ish) */
+  --color-primary-700: #005fa8;
+  --color-accent: #FFC857;       /* Warm yellow accent */
+  --color-muted: #6B7280;        /* neutral gray */
+  --color-dark: #0B1220;         /* deep charcoal */
+  --color-bg: #F7FAFC;          /* very light background */
+  --color-card: #FFFFFF;
+
   /* Typography */
-  --font-heading: "Calibre", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: "freight-text-pro", Georgia, serif;
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
 }
 
 html {
@@ -31,7 +33,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-dark);
   line-height: 1.6;
-  background-color: var(--color-white);
+  background-color: var(--color-bg);
 }
 
 main {
@@ -54,9 +56,9 @@ h2 {
 
 /* Header */
 .main-header {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: 20px 40px;
+  background: var(--color-card);
+  box-shadow: 0 1px 6px rgba(12, 18, 28, 0.06);
+  padding: 18px 32px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -65,49 +67,55 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 .logo {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #222;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-700);
 }
-.nav-links a {
-  margin: 0 15px;
+.nav-links a, .nav-links a:visited, .nav-links a:link {
+  margin: 0 12px;
   text-decoration: none;
-  color: #333;
-  transition: color 0.3s;
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.18s ease, transform 0.12s ease;
 }
 .nav-links a:hover {
-  color: #ff6f00;
+  color: var(--color-primary);
+  transform: translateY(-1px);
 }
 
 /* Hero Section */
 .hero {
-  /* Use the component-level hero background from Hero.module.css */
   position: relative;
-  height: 70vh; /* Adjust height for better visibility */
+  height: 64vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  text-align: center;
+  text-align: left;
+  background-position: center;
+  background-size: cover;
 }
 .hero-content {
-  max-width: 800px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
+  max-width: 980px;
+  padding: 28px 36px;
+  background: linear-gradient(180deg, rgba(6,12,24,0.28), rgba(6,12,24,0.55));
+  border-radius: var(--radius-md);
 }
 .hero-content h1 {
   font-family: var(--font-heading);
-  font-size: 3rem;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-size: 2.6rem;
+  margin-bottom: 8px;
+  color: #fff;
 }
 .hero-content p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+  color: rgba(255,255,255,0.92);
 }
 .quicklinks {
   margin-top: 20px;
@@ -137,14 +145,15 @@ h2 {
   display: inline-block;
 }
 .card {
-  background: var(--color-white);
-  border-radius: 12px;
+  background: var(--color-card);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 24px rgba(11, 18, 32, 0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 34px rgba(11, 18, 32, 0.09);
 }
 
 /* Common Components */
@@ -168,23 +177,30 @@ h2 {
 
 /* Button Styles */
 .btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.6px;
+  transition: all 0.18s ease;
 }
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,114,206,0.12);
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid rgba(0,114,206,0.12);
 }
 
 /* Grid Layouts */
@@ -197,22 +213,31 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }       
 
+/* Animation utilities */
+.fade-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Footer */
 footer {
-  background: #222;
-  color: #ccc;
-  padding: 40px;
-  text-align: center;
+  background: transparent;
+  color: var(--color-muted);
+  padding: 48px 16px;
 }
 
 footer a {
-  color: #ff6f00;
+  color: var(--color-muted);
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 8px;
 }
 
 footer a:hover {
-  color: #fff;
+  color: var(--color-primary);
 }
 
 /* Responsive Design */

@@ -1,4 +1,5 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿/* eslint-disable unicode-bom */
+import React, { useState, useEffect } from 'react';
 
 function ScrollToTop() {
     const [visible, setVisible] = useState(false);
