@@ -14,8 +14,25 @@ app.get('*', (req, res) => {
 	res.sendFile(path.join(buildPath, 'index.html'));
 });
 
-app.listen(PORT, () => {
-	console.log(`Server listening on port ${PORT}`);
+// Health endpoint for Cloud Run / health checks
+app.get('/health', (req, res) => res.status(200).send('OK'));
+
+// Start server and bind to 0.0.0.0 so Cloud Run can reach it
+const LISTEN_HOST = process.env.LISTEN_HOST || '0.0.0.0';
+app.listen(PORT, LISTEN_HOST, () => {
+	console.log(`Server listening on ${LISTEN_HOST}:${PORT}`);
+	const fs = require('fs');
+	const buildPath = path.join(__dirname, 'build');
+	if (!fs.existsSync(buildPath)) {
+		console.warn('Warning: build folder not found at', buildPath);
+	} else {
+		try {
+			const files = fs.readdirSync(buildPath);
+			console.log('Build folder contents sample:', files.slice(0,10));
+		} catch (err) {
+			console.warn('Could not read build folder contents:', err.message);
+		}
+	}
 });
 import React from 'react';
 import ReactDOM from 'react-dom/client';
