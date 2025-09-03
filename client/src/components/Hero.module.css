@@ -1,10 +1,7 @@
 .hero {
-    height: 100vh; /* Full viewport height */
+    height: 85vh; /* Slightly shorter to reveal header */
     position: relative;
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.6), 
-        rgba(0, 0, 0, 0.6)
-    ), url('../assets/images/bodh-gaya-1.jpg') center center no-repeat;
+    background: url('../assets/images/bodh-gaya-1.jpg') center center no-repeat;
     background-size: cover; /* Ensure the image covers the entire section */
     color: var(--color-white);
     display: flex;
@@ -12,7 +9,14 @@
     justify-content: center;
     text-align: center;
     margin-top: 0; /* Remove margin */
-    animation: zoomInOut 15s ease-in-out infinite; /* Smooth zoom animation */
+    overflow: hidden;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.45), rgba(0,0,0,0.55));
+    z-index: 1;
 }
 
 @keyframes zoomInOut {
@@ -28,48 +32,78 @@
 }
 
 .heroContent {
-    max-width: 800px;
+    max-width: 1000px;
     padding: 0 2rem;
     z-index: 2; /* Ensure content is above the background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .heroTitle {
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    color: #f4a261; /* Use a warm accent color */
+    margin-bottom: 0.6rem;
+    line-height: 1.15;
+    color: #ffdca3; /* Warm accent for better contrast */
+    text-shadow: 0 6px 24px rgba(0,0,0,0.6);
 }
 
 .heroSubtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    color: #ffffff; /* Ensure readability */
+    font-size: 1.15rem;
+    margin-bottom: 1.6rem;
+    opacity: 0.95;
+    color: rgba(255,255,255,0.95); /* Ensure readability */
+    max-width: 820px;
 }
 
 .heroCta {
     display: inline-block;
-    background: #f4a261; /* Warm accent color */
     color: #fff;
-    padding: 1rem 2.5rem;
-    border-radius: 30px;
-    font-weight: 600;
+    padding: 0.9rem 2rem;
+    border-radius: 28px;
+    font-weight: 700;
     text-decoration: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.ctaPrimary {
+    background: linear-gradient(90deg, #297CBB, #1f6aa6);
+    margin-right: 12px;
+}
+
+.ctaSecondary {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
 }
 
 .heroCta:hover {
-    transform: translateY(-2px);
-    background-color: #e76f51; /* Darker shade on hover */
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.45);
+}
+
+.ctaRow {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+        background-position: center top;
+    }
     .heroTitle {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .heroSubtitle {
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+    .ctaRow {
+        gap: 8px;
     }
 }

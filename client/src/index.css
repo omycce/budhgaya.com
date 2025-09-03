@@ -84,13 +84,12 @@ h2 {
 
 /* Hero Section */
 .hero {
+  /* Use the component-level hero background from Hero.module.css */
   position: relative;
   height: 70vh; /* Adjust height for better visibility */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('https://example.com/your-image.jpg') center center no-repeat; /* Replace with your image URL */
-  background-size: cover; /* Ensures the image covers the entire section */
   color: #fff;
   text-align: center;
 }

@@ -3,23 +3,19 @@ import styles from './Hero.module.css';
 
 const Hero = () => {
   return (
-    <div className={styles.hero}>
+    <header className={styles.hero} role="banner">
+      <div className={styles.heroOverlay} />
       <div className={styles.heroContent}>
-        <h1>Discover Bodh Gaya</h1>
-        <p>
-          Journey to the cradle of Buddhism, where ancient wisdom meets timeless tranquility.
-          Experience the spiritual essence of India's most sacred Buddhist pilgrimage site.
+        <h1 className={styles.heroTitle}>Discover Bodh Gaya</h1>
+        <p className={styles.heroSubtitle}>
+          Journey to the cradle of Buddhism — where ancient wisdom meets timeless tranquility. Plan your visit, explore sacred sites, and join cultural events.
         </p>
-        <div className={styles.quicklinks}>
-          <a className={styles.quicklink} href="#top-attractions">
-            Explore Sacred Sites
-          </a>
-          <a className={styles.quicklink} href="#explore">
-            Plan Your Journey
-          </a>
+        <div className={styles.ctaRow}>
+          <a className={`${styles.heroCta} ${styles.ctaPrimary}`} href="#top-attractions">Explore Sacred Sites</a>
+          <a className={`${styles.heroCta} ${styles.ctaSecondary}`} href="#plan">Plan Your Journey</a>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
