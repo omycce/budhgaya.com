@@ -8,6 +8,9 @@ import Featured from './Featured';
 import Explore from './Explore';
 import Gallery from './Gallery';
 import About from './About';
+import Encyclopedia from './Encyclopedia';
+import EncyclopediaPage from './EncyclopediaPage';
+import { Routes, Route } from 'react-router-dom';
 import Cuisine from './Cuisine';
 import Events from './Events';
 import FAQ from './FAQ';
@@ -29,8 +32,10 @@ function App() {
     <div className="App">
       <Helmet>
         <title>Bodh Gaya Tourism - Buddhist Pilgrimage Site & Travel Guide</title>
-        <meta name="description" content="Discover Bodh Gaya, India's sacred Buddhist pilgrimage site. Plan your visit to Mahabodhi Temple, explore local cuisine, find accommodation, and learn about cultural events." />
-        <meta name="keywords" content="Bodh Gaya, Buddhist pilgrimage, Mahabodhi Temple, Buddhism, India tourism, Bihar tourism, meditation retreat, spiritual tourism" />
+  <meta name="description" content="Discover Bodh Gaya (Budhgaya) — Mahabodhi Temple, Bodhi tree, pilgrimage guides, travel tips, events, and cultural information for visitors to Gaya, Bihar." />
+  <meta name="keywords" content="Bodh Gaya, Budhgaya, Gaya, Bodhgaya, Mahabodhi Temple, bodhi tree, Buddhist pilgrimage, travel guide" />
+  <link rel="alternate" href="https://budhgaya.com" hreflang="en" />
+  <link rel="alternate" href="https://budhgaya.com?lang=hi" hreflang="hi" />
         <meta property="og:title" content="Bodh Gaya Tourism - Buddhist Pilgrimage Site & Travel Guide" />
         <meta property="og:description" content="Discover Bodh Gaya, India's sacred Buddhist pilgrimage site. Plan your visit to Mahabodhi Temple, explore local cuisine, find accommodation, and learn about cultural events." />
         <meta property="og:type" content="website" />
@@ -39,16 +44,24 @@ function App() {
       </Helmet>
       <Header />
       <main>
-        <Hero />
-        <Featured />
-        <Explore />
-        <Gallery />
-        <About />
-        <LiveData />
-        <Cuisine />
-        <Events />
-        <FAQ />
-        <TravelDetails />
+        <Routes>
+          <Route path="/encyclopedia" element={<EncyclopediaPage />} />
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Featured />
+              <Explore />
+              <Gallery />
+              <About />
+              <Encyclopedia />
+              <LiveData />
+              <Cuisine />
+              <Events />
+              <FAQ />
+              <TravelDetails />
+            </>
+          } />
+        </Routes>
       </main>
       <Footer />
       <ScrollToTop />

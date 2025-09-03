@@ -120,3 +120,12 @@
   padding: 2rem;
   color: #dc3545;
 }
+
+.attribution {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+.attribution a { color: #1a73e8; text-decoration: none; }
+.attribution a:hover { text-decoration: underline; }

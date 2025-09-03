@@ -5,39 +5,38 @@ function Gallery() {
   const galleryItems = [
     {
       id: 1,
-      image: "https://upload.wikimedia.org/wikipedia/commons/2/28/Mahabodhi_Temple_Bodh_Gaya_Bihar.jpg",
-      title: "Mahabodhi Temple at Sunset",
-      description: "The iconic temple complex illuminated during golden hour"
+      image: "/assets/images/bodh-day1.png",
+      external: "https://bodhgayatemple.com/wp-content/uploads/2021/04/Day1.png",
+      title: "Day View",
+      description: "Daytime view of the Mahabodhi complex"
     },
     {
       id: 2,
-      image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Bodhi_Tree%2C_Bodh_Gaya%2C_India.jpg",
-      title: "Sacred Bodhi Tree",
-      description: "The descendant of the original tree under which Buddha attained enlightenment"
+      image: "/assets/images/bodh-night1.png",
+      external: "https://bodhgayatemple.com/wp-content/uploads/2021/04/Night1.png",
+      title: "Night View",
+      description: "The temple illuminated at night"
     },
     {
       id: 3,
-      image: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Great_Buddha_Statue%2C_Bodh_Gaya.jpg",
-      title: "Great Buddha Statue",
-      description: "The towering Buddha statue overlooking the gardens"
+      image: "/assets/images/bodh-vajrasana.png",
+      external: "https://bodhgayatemple.com/wp-content/uploads/2021/04/Vajrasana-1.png",
+      title: "Vajrasana",
+      description: "The Vajrasana shrine inside the Mahabodhi Temple"
     },
     {
       id: 4,
-      image: "https://upload.wikimedia.org/wikipedia/commons/2/28/Mahabodhi_Temple_Bodh_Gaya_Bihar.jpg",
-      title: "Temple Architecture",
-      description: "Intricate details of the ancient temple structure"
+      image: "/assets/images/bodh-1.jpg",
+      external: "https://bodhgayatemple.com/wp-content/uploads/2021/12/1.jpg",
+      title: "Temple Slider",
+      description: "One of the featured slider images from the temple site"
     },
     {
       id: 5,
-      image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Bodhi_Tree%2C_Bodh_Gaya%2C_India.jpg",
-      title: "Meditation Gardens",
-      description: "Peaceful gardens where pilgrims meditate"
-    },
-    {
-      id: 6,
-      image: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Great_Buddha_Statue%2C_Bodh_Gaya.jpg",
-      title: "Evening Prayers",
-      description: "Monks gathering for evening ceremonies"
+      image: "/assets/images/bodh-misc1.png",
+      external: "https://bodhgayatemple.com/wp-content/uploads/2020/12/Animesha-Lochana-Chaitya.png",
+      title: "Chaitya",
+      description: "Animesha Lochana Chaitya from the temple grounds"
     }
   ];
 
@@ -51,6 +50,7 @@ function Gallery() {
               src={item.image}
               alt={item.title}
               className={styles.galleryImage}
+              onError={(e) => { e.target.onerror = null; e.target.src = item.external; }}
             />
             <div className={styles.galleryOverlay}>
               <h3 className={styles.galleryTitle}>{item.title}</h3>
@@ -59,6 +59,7 @@ function Gallery() {
           </div>
         ))}
       </div>
+      <p className={styles.attribution}>Photos: Courtesy of <a href="https://bodhgayatemple.com" target="_blank" rel="noopener">Bodhgaya Temple</a></p>
     </section>
   );
 }

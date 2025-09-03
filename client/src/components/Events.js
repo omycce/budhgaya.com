@@ -35,7 +35,7 @@ function Events() {
       
       <div className={styles.eventsList}>
         {events.map((event, index) => (
-          <div key={index} className={styles.eventCard}>
+            <div key={index} className={styles.eventCard}>
             <div className={styles.eventImageContainer}>
               <img src={event.image} alt={event.name} className={styles.eventImage} />
               <span className={styles.eventCategory}>{event.category}</span>

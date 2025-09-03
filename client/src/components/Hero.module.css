@@ -1,3 +1,40 @@
+.heroSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0 12px 0;
+    gap: 0;
+}
+
+.searchInput {
+    width: 320px;
+    max-width: 80vw;
+    padding: 0.85rem 1.2rem;
+    border-radius: 24px 0 0 24px;
+    border: none;
+    font-size: 1.1rem;
+    background: rgba(255,255,255,0.92);
+    color: #222;
+    outline: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.searchButton {
+    padding: 0.85rem 1.5rem;
+    border-radius: 0 24px 24px 0;
+    border: none;
+    background: linear-gradient(90deg, #297CBB, #1f6aa6);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+
+.searchButton:hover {
+    background: linear-gradient(90deg, #1f6aa6, #297CBB);
+}
 .hero {
     height: 85vh; /* Slightly shorter to reveal header */
     position: relative;

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /private/
 Allow: /
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://budhgaya.com/sitemap.xml

@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
 function Header() {
@@ -20,6 +21,7 @@ function Header() {
                     <a href="#events">Events</a>
                     <a href="#faq">FAQ</a>
                     <a href="#travel-details">Travel</a> {/* Added Travel link */}
+                    <Link to="/encyclopedia">Encyclopedia</Link>
                 </div>
             </nav>
         </header>
