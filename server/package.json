@@ -1,4 +1,12 @@
 {
+  "name": "budhgaya-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build-client": "npm --prefix ../client run build && rm -rf build && cp -r ../client/build ./build"
+  },
   "dependencies": {
     "express": "^5.1.0"
   }
