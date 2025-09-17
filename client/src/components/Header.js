@@ -43,7 +43,7 @@ function Header() {
                     <a href="#events">Events</a>
                     <a href="#faq">FAQ</a>
                     <a href="#travel-details">Travel</a>
-                    <Link to="/encyclopedia">Encyclopedia</Link>
+            
                 </div>
             </nav>
         </header>
