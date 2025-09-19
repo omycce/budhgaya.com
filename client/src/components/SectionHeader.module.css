@@ -1,0 +1,62 @@
+.notificationHeader {
+  background: linear-gradient(90deg, #ffe066 0%, #ffd43b 100%);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(255, 212, 67, 0.15);
+  padding: 1.2rem 2rem 1.1rem 2rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1.5px solid #ffe066;
+}
+
+.notificationTitle {
+  font-family: var(--font-heading, 'Merriweather', Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #7c5c00;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-bottom: 0.2em;
+  letter-spacing: -0.5px;
+}
+
+.notificationSubtitle {
+  font-size: 1.05rem;
+  color: #7c5c00;
+  opacity: 0.95;
+  font-weight: 500;
+  margin-top: 0.1em;
+}
+.sectionHeader {
+  margin-bottom: 2.5rem;
+  text-align: left;
+  padding-top: 1.5rem;
+}
+.title {
+  font-family: var(--font-heading, 'Merriweather', Georgia, serif);
+  font-size: 2.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  color: var(--color-primary, #297CBB);
+  letter-spacing: -0.5px;
+  margin-bottom: 0.2em;
+}
+.icon {
+  font-size: 1.5em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+}
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--color-secondary, #4B5C6B);
+  margin-top: 0.1em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+}

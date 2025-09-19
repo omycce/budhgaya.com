@@ -67,9 +67,9 @@ export default function EncyclopediaPage() {
         <section>
           <h3>Images & Media</h3>
           <div className={styles.images}>
-            <img src="/assets/images/mahabodhi-temple.jpg" alt="Mahabodhi Temple" />
-            <img src="/assets/images/bodhi-tree.jpg" alt="Bodhi Tree" />
-            <img src="/assets/images/bodh-gaya.jpg" alt="Bodh Gaya panorama" />
+            <img src="/assets/images/mahabodhi-temple.jpg" alt="Mahabodhi Temple" loading="lazy" />
+            <img src="/assets/images/bodhi-tree.jpg" alt="Bodhi Tree" loading="lazy" />
+            <img src="/assets/images/bodh-gaya.jpg" alt="Bodh Gaya panorama" loading="lazy" />
           </div>
         </section>
 

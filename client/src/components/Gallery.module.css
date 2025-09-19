@@ -44,19 +44,45 @@
   transform: scale(1.1);
 }
 
+
 .galleryOverlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-  padding: 2rem 1rem 1rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
+  background: linear-gradient(to top, rgba(20,20,20,0.82) 0%, rgba(20,20,20,0.32) 80%, transparent 100%);
+  padding: 1.2rem 1rem 0.8rem;
+  min-height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 1;
+  transition: background 0.3s;
 }
 
-.galleryItem:hover .galleryOverlay {
-  transform: translateY(0);
+.galleryItem {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  border: 1.5px solid #e6e6e6;
+}
+
+.galleryImage {
+  filter: contrast(1.08) saturate(1.08) brightness(0.98);
+  border-radius: 0;
+}
+
+.galleryTitle {
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.galleryDesc {
+  color: #f3f3f3;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.18);
 }
 
 .galleryTitle {

@@ -44,7 +44,7 @@ function FAQ() {
           }`}
         </script>
       </Helmet>
-      <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
       <ul className={styles.faqList}>
         <li className={styles.faqItem}>
           <div className={styles.question}>Is Bodh Gaya safe for tourists?</div>
@@ -52,6 +52,24 @@ function FAQ() {
             Yes, Bodh Gaya is generally safe, but take standard precautions with your belongings.
           </div>
         </li>
+          <li className={styles.faqItem}>
+            <div className={styles.question}>Do I need a permit to enter the Mahabodhi Temple?</div>
+            <div className={styles.answer}>
+              No special permit is usually required for tourists to visit the public areas of the Mahabodhi complex, but rules for photography and dress codes should be followed. For large groups or special ceremonies consult the temple authorities.
+            </div>
+          </li>
+          <li className={styles.faqItem}>
+            <div className={styles.question}>Is Bodh Gaya wheelchair accessible?</div>
+            <div className={styles.answer}>
+              Parts of the Mahabodhi complex have step-free access, but some older pathways and temple grounds can be uneven. Contact hotels or the management committee for up-to-date accessibility advice.
+            </div>
+          </li>
+          <li className={styles.faqItem}>
+            <div className={styles.question}>What local etiquette should visitors follow?</div>
+            <div className={styles.answer}>
+              Dress modestly, remove shoes where requested, ask before photographing people in prayer, and be quiet around meditation areas.
+            </div>
+          </li>
         <li className={styles.faqItem}>
           <div className={styles.question}>What is the best time to visit?</div>
           <div className={styles.answer}>

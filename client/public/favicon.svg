@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0072CE" />
+      <stop offset="1" stop-color="#005fa8" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="18" fill="url(#g)" />
+  <text x="50" y="57" font-family="Merriweather, Georgia, serif" font-weight="700" font-size="44" fill="#fff" text-anchor="middle">BG</text>
+</svg>

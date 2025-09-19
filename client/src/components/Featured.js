@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Featured.module.css';
+import SectionHeader from './SectionHeader';
 // Import images
 import mahabodhiTemple from '../assets/images/mahabodhi-temple.jpg';
 import bodhiTree from '../assets/images/bodhi-tree.jpg';
@@ -7,76 +8,47 @@ import buddhaStatue from '../assets/images/buddha-statue.jpg';
 
 function Featured() {
   return (
-    <div className={styles.featuredSection} id="top-attractions">
-      <h2 className={styles.sectionTitle}>Top Attractions</h2>
+    <section className={styles.featuredSection} id="top-attractions">
+      
+      
+
       <div className={`${styles.cardGrid} fade-up`}>
-        <div className={`${styles.card} fade-up`}>
+        <article className={`${styles.card} fade-up`}>
           <div className={styles.cardImageWrapper}>
             <img 
               className={styles.cardImage} 
               src={mahabodhiTemple}
               alt="Mahabodhi Temple" 
+              loading="lazy"
             />
-          </div>
-          <div className={styles.cardContent}>
-            <div className={styles.cardTitle}>Mahabodhi Temple</div>
-            <div className={styles.cardDesc}>
-              A UNESCO World Heritage Site, the Mahabodhi Temple is the ultimate pilgrimage site for Buddhists and a masterpiece of Indian architecture.
+            <div className={styles.cardOverlay}>
+              <div className={styles.cardOverlayTitle}>Mahabodhi Temple</div>
+              <div className={styles.cardOverlayText}>UNESCO World Heritage — site of Buddha's enlightenment (Mahabodhi Temple)</div>
             </div>
-            <a 
-              className={styles.cardLink} 
-              href="#mahabodhi-temple"
-            >
-              Learn More
-            </a>
           </div>
-  </div>
+        </article>
 
-  <div className={`${styles.card} fade-up`}>
+        <article className={`${styles.card} fade-up`}>
           <div className={styles.cardImageWrapper}>
             <img 
               className={styles.cardImage} 
               src={bodhiTree}
               alt="Bodhi Tree" 
+              loading="lazy"
             />
-          </div>
-          <div className={styles.cardContent}>
-            <div className={styles.cardTitle}>Bodhi Tree</div>
-            <div className={styles.cardDesc}>
-              Meditate under the legendary Bodhi Tree, believed to be a direct descendant of the tree under which Buddha attained enlightenment.
+            <div className={styles.cardOverlay}>
+              <div className={styles.cardOverlayTitle}>Bodhi Tree</div>
+              <div className={styles.cardOverlayText}>Sacred fig tree — a direct descendant of the original tree where the Buddha sat in meditation</div>
             </div>
-            <a 
-              className={styles.cardLink} 
-              href="#bodhi-tree"
-            >
-              Read More
-            </a>
           </div>
-  </div>
-
-  <div className={`${styles.card} fade-up`}>
-          <div className={styles.cardImageWrapper}>
-            <img 
-              className={styles.cardImage} 
-              src={buddhaStatue}
-              alt="Great Buddha Statue" 
-            />
-          </div>
-          <div className={styles.cardContent}>
-            <div className={styles.cardTitle}>Great Buddha Statue</div>
-            <div className={styles.cardDesc}>
-              An 80-foot serene Buddha statue surrounded by smaller statues, gardens, and a tranquil setting for reflection.
-            </div>
-            <a 
-              className={styles.cardLink} 
-              href="#buddha-statue"
-            >
-              See Details
-            </a>
-          </div>
-        </div>
+        </article>
       </div>
-    </div>
+
+      <div className={styles.ctaWrap}>
+        <a className={styles.exploreBtn} href="/attractions" target="_blank" rel="noopener noreferrer">See all attractions</a>
+
+      </div>
+    </section>
   );
 }
 

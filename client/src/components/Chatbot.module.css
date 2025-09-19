@@ -1,11 +1,12 @@
 .chatbot {
   position: fixed;
-  bottom: 20px;
+  bottom: 80px;
   right: 20px;
-  width: 300px;
+  width: 320px;
+  max-width: calc(100% - 40px);
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.12);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -60,4 +61,40 @@
 
 .sendButton:hover {
   background-color: #005f87;
+}
+
+/* Floating help button */
+.helpButton {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+  border: none;
+  box-shadow: 0 8px 22px rgba(2,6,23,0.18);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(90deg, rgba(0,114,206,0.06), rgba(0,114,206,0.02));
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }

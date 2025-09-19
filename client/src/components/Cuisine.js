@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styles from './Cuisine.module.css';
+import SectionHeader from './SectionHeader';
 
 function Cuisine() {
   return (
@@ -16,25 +17,26 @@ function Cuisine() {
           content="Bodh Gaya, local cuisine, food, Litti Chokha, Momos, Samosas, Thukpa, sweets"
         />
       </Helmet>
-      <h2 className={styles.cuisineTitle}>Local Cuisine to Try in Bodh Gaya</h2>
+        <SectionHeader
+          icon="🍲"
+          title="Cuisine"
+          subtitle="Local food to try"
+          id="cuisine"
+        />
       <ul className={styles.cuisineList}>
         <li className={styles.cuisineItem}>
-          <b>Litti Chokha</b>
-          <p>Roasted wheat balls stuffed with spiced gram flour, served with mashed vegetables.</p>
+          <b>Litti Chokha</b> — a hearty local staple: wheat balls with spiced mashed vegetables
         </li>
         <li className={styles.cuisineItem}>
-          <b>Momos</b>
-          <p>Tibetan-style dumplings, popular in local markets.</p>
+          <b>Thukpa & Momos</b> — Himalayan-style soups and steamed dumplings served around the station
         </li>
         <li className={styles.cuisineItem}>
-          <b>Samosas & Sweets</b>
-          <p>Try fresh samosas and local sweets like peda and jalebi.</p>
-        </li>
-        <li className={styles.cuisineItem}>
-          <b>Thukpa</b>
-          <p>A hearty noodle soup, perfect for cool evenings.</p>
+          <b>Sweets & Street Food</b> — from khaja to jalebi, sugar and spice on every corner
         </li>
       </ul>
+      <p style={{fontSize: '0.9rem', color: '#666', marginTop: '0.6rem'}}>
+        Taste reference: <a href="https://www.tasteatlas.com/litti-chokha" target="_blank" rel="noopener noreferrer">Litti Chokha (TasteAtlas)</a>.
+      </p>
     </section>
   );
 }

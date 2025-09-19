@@ -10,6 +10,7 @@
   --color-dark: #0B1220;         /* deep charcoal */
   --color-bg: #F7FAFC;          /* very light background */
   --color-card: #FFFFFF;
+  --base-font-size: 16px;
 
   /* Typography */
   --font-heading: 'Merriweather', Georgia, serif;
@@ -17,6 +18,9 @@
 
   --radius-sm: 8px;
   --radius-md: 12px;
+  --container-max: 1200px;
+  --logo-badge-bg: #ffffff;
+  --muted-2: #9AA4B2;
 }
 
 html {
@@ -31,9 +35,17 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-size: var(--base-font-size);
   color: var(--color-dark);
   line-height: 1.6;
   background-color: var(--color-bg);
+}
+
+/* Minor typography refinements for better readability */
+body {
+  color: #12202b; /* slightly softer than pure black */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 main {
@@ -46,7 +58,8 @@ section {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
@@ -75,6 +88,21 @@ h2 {
   font-weight: 700;
   color: var(--color-primary-700);
 }
+
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,250,0.9));
+  box-shadow: 0 8px 28px rgba(11,18,32,0.08);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-right: 12px;
+}
 .nav-links a, .nav-links a:visited, .nav-links a:link {
   margin: 0 12px;
   text-decoration: none;
@@ -101,14 +129,14 @@ h2 {
   background-size: cover;
 }
 .hero-content {
-  max-width: 980px;
-  padding: 28px 36px;
+  max-width: 1100px;
+  padding: 36px 44px;
   background: linear-gradient(180deg, rgba(6,12,24,0.28), rgba(6,12,24,0.55));
   border-radius: var(--radius-md);
 }
 .hero-content h1 {
   font-family: var(--font-heading);
-  font-size: 2.6rem;
+  font-size: 3.4rem;
   margin-bottom: 8px;
   color: #fff;
 }
@@ -171,8 +199,14 @@ h2 {
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: var(--color-gray);
+  color: var(--color-muted);
   margin-bottom: 2rem;
+}
+
+/* Font smoothing for better rendering */
+html, body, input, textarea, button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Button Styles */
@@ -194,7 +228,9 @@ h2 {
 .btn-primary {
   background-color: var(--color-primary);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(0,114,206,0.12);
+  box-shadow: 0 10px 40px rgba(0,114,206,0.16);
+  padding: 0.85rem 1.25rem;
+  border-radius: 28px;
 }
 
 .btn-secondary {

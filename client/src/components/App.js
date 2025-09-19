@@ -8,15 +8,14 @@ import Featured from './Featured';
 import Explore from './Explore';
 import Gallery from './Gallery';
 import About from './About';
-import Encyclopedia from './Encyclopedia';
-import EncyclopediaPage from './EncyclopediaPage';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Cuisine from './Cuisine';
 import Events from './Events';
 import FAQ from './FAQ';
 import TravelDetails from './TravelDetails';
-import LiveData from './LiveData';
-import Community from './Community';
+// Encyclopedia and LiveData were intentionally removed from the client-side
+// single-page app. A static `encyclopedia.html` is available in `public/`.
+import Chatbot from './Chatbot';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 
@@ -29,14 +28,26 @@ function App() {
     i18n.changeLanguage(lang); // Change language dynamically
   }, [i18n]);
 
+  // Scroll to section if hash is present (for /explore page)
+  useEffect(() => {
+    if (window.location.pathname === '/explore' && window.location.hash) {
+      const el = document.getElementById(window.location.hash.replace('#', ''));
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, []);
+
   return (
     <div className="App">
       <Helmet>
         <title>Bodh Gaya Tourism - Buddhist Pilgrimage Site & Travel Guide</title>
-  <meta name="description" content="Discover Bodh Gaya (Budhgaya) — Mahabodhi Temple, Bodhi tree, pilgrimage guides, travel tips, events, and cultural information for visitors to Gaya, Bihar." />
-  <meta name="keywords" content="Bodh Gaya, Budhgaya, Gaya, Bodhgaya, Mahabodhi Temple, bodhi tree, Buddhist pilgrimage, travel guide" />
-  <link rel="alternate" href="https://budhgaya.com" hreflang="en" />
-  <link rel="alternate" href="https://budhgaya.com?lang=hi" hreflang="hi" />
+        <meta name="description" content="Discover Bodh Gaya (Budhgaya) — Mahabodhi Temple, Bodhi tree, pilgrimage guides, travel tips, events, and cultural information for visitors to Gaya, Bihar." />
+        <meta name="keywords" content="Bodh Gaya, Budhgaya, Gaya, Bodhgaya, Mahabodhi Temple, bodhi tree, Buddhist pilgrimage, travel guide" />
+        <link rel="alternate" href="https://budhgaya.com" hreflang="en" />
+        <link rel="alternate" href="https://budhgaya.com?lang=hi" hreflang="hi" />
         <meta property="og:title" content="Bodh Gaya Tourism - Buddhist Pilgrimage Site & Travel Guide" />
         <meta property="og:description" content="Discover Bodh Gaya, India's sacred Buddhist pilgrimage site. Plan your visit to Mahabodhi Temple, explore local cuisine, find accommodation, and learn about cultural events." />
         <meta property="og:type" content="website" />
@@ -46,26 +57,41 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/encyclopedia" element={<EncyclopediaPage />} />
+          {/* Dedicated minimal pages for each section */}
+          <Route path="/attractions" element={<Featured />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/cuisine" element={<Cuisine />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/travel-details" element={<TravelDetails />} />
+          {/* The original explore page with all sections */}
+          <Route path="/all" element={
+            <>
+              <Featured />
+              <Gallery />
+              <About />
+              <Events />
+              <Cuisine />
+              <Explore />
+              <FAQ />
+              <TravelDetails />
+            </>
+          } />
           <Route path="/" element={
             <>
               <Hero />
               <Featured />
-              <Explore />
-              <Gallery />
-              <About />
-              <Encyclopedia />
-              <LiveData />
-              <Cuisine />
-              <Events />
-              <FAQ />
-              <Community />
-              <TravelDetails />
+              <div style={{textAlign: 'center', margin: '28px 0'}}>
+              
+              </div>
             </>
           } />
         </Routes>
       </main>
       <Footer />
+      <Chatbot />
       <ScrollToTop />
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Gallery.module.css';
+import SectionHeader from './SectionHeader';
 
 function Gallery() {
   const galleryItems = [
@@ -42,27 +43,40 @@ function Gallery() {
 
   return (
     <section className={styles.gallerySection} id="gallery">
-      <h2 className={styles.sectionTitle}>Photo Gallery</h2>
+        <SectionHeader
+          title="Gallery"
+          subtitle="Bodh Gaya in pictures — Mahabodhi Temple, Bodhi Tree and sacred moments"
+          id="gallery"
+        />
+      <p style={{color: '#555', maxWidth: 780, margin: '0.6rem auto 0'}}>
+        A small selection of images that capture Bodh Gaya's spiritual heart:
+        the Mahabodhi Temple complex, the Bodhi Tree and the international
+        monasteries that surround the sacred grounds. Click each image for a
+        closer view and short caption.
+      </p>
+
       <div className={styles.galleryGrid}>
-        {galleryItems.map((item) => (
+        {galleryItems.slice(0,2).map((item) => (
           <div key={item.id} className={`${styles.galleryItem} fade-up`}>
-            <img
-              src={item.image}
-              srcSet={`${item.image} 1x, ${item.external} 2x`}
-              alt={item.title}
-              className={styles.galleryImage}
-              loading="lazy"
-              decoding="async"
-              onError={(e) => { e.target.onerror = null; e.target.src = item.external; }}
-            />
-            <div className={styles.galleryOverlay}>
-              <h3 className={styles.galleryTitle}>{item.title}</h3>
-              <p className={styles.galleryDesc}>{item.description}</p>
-            </div>
+            <figure>
+              <img
+                src={item.image}
+                srcSet={`${item.image} 1x, ${item.external} 2x`}
+                alt={item.title + ' — ' + item.description}
+                className={styles.galleryImage}
+                loading="lazy"
+                decoding="async"
+                onError={(e) => { e.target.onerror = null; e.target.src = item.external; }}
+              />
+              <figcaption className={styles.galleryOverlay}>
+                <h3 className={styles.galleryTitle}>{item.title}</h3>
+                <p className={styles.galleryDesc}>{item.description}</p>
+               
+              </figcaption>
+            </figure>
           </div>
         ))}
       </div>
-  <p className={styles.attribution}>Photos: Courtesy of <a href="https://bodhgayatemple.com" target="_blank" rel="noopener noreferrer">Bodhgaya Temple</a></p>
     </section>
   );
 }

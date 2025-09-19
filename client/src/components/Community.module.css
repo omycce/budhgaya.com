@@ -6,13 +6,26 @@
   border-radius: 12px;
   box-shadow: 0 6px 24px rgba(0,0,0,0.06);
 }
-.lead { color: #666; margin-bottom: 1rem; }
-.composer { display: block; margin-bottom: 2rem; }
+.headerRow { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.lead { color: #666; margin:0; }
+.composer { display: block; margin:1.25rem 0 2rem; }
+.composerRow { display:flex; gap:0.75rem; align-items:center; }
 .input, .textarea { width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid #e6e6e6; margin-bottom: 0.75rem; }
-.textarea { min-height: 100px; resize: vertical; }
+.textarea { min-height: 110px; resize: vertical; }
 .row { display:flex; justify-content:flex-end; }
 .button { background:#005fa3; color:#fff; border:none; padding:0.6rem 1rem; border-radius:8px; cursor:pointer; }
 .list { list-style:none; padding:0; margin:0; }
-.post { padding:1rem; border-radius:8px; background:linear-gradient(180deg,#f8fbff,#fff); margin-bottom:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.post { margin-bottom:1rem; }
+.postInner { display:flex; gap:1rem; align-items:flex-start; padding:1rem; border-radius:12px; background:linear-gradient(180deg,#fff,#f7fbff); box-shadow:0 6px 18px rgba(0,95,163,0.06); }
+.avatar { width:48px; height:48px; border-radius:50%; background:#005fa3; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; }
+.postBody { flex:1; }
 .meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; }
+.author { color:#033e5a; }
 .time { font-size:0.85rem; color:#888; }
+.content { margin-bottom:0.75rem; line-height:1.45; }
+.actions { display:flex; gap:0.5rem; }
+.iconBtn { background:transparent; border:none; color:#666; padding:0.25rem 0.5rem; border-radius:6px; cursor:pointer; }
+.liked { color:#e0245e; }
+.contact { margin-top:2rem; padding:1rem; border-radius:8px; background:#f7f9fb; }
+.toast { margin-top:0.5rem; padding:0.75rem; background:#e6ffed; border:1px solid #b7f0c7; border-radius:8px; color:#0b6623; }
+

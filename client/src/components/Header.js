@@ -1,13 +1,22 @@
 ﻿/* eslint-disable unicode-bom */
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+// Link removed (unused) to satisfy eslint
 import styles from './Header.module.css';
+import Logo from './Logo';
 
 function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
+    const { i18n } = useTranslation();
+    const [lang, setLang] = useState(i18n.language || 'en');
 
     useEffect(() => {
+        // If page doesn't include a hero (dedicated pages opened in new tab),
+        // show the header in 'scrolled' (solid) style so nav items are readable.
+        const hasHero = !!document.querySelector('.hero');
+        if (!hasHero) setScrolled(true);
+
         const onScroll = () => setScrolled(window.scrollY > 36);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
@@ -17,10 +26,13 @@ function Header() {
         <header className={`${styles.mainHeader} ${scrolled ? styles.scrolled : ''}`}>
             <nav className={styles.nav}>
                 <a className={styles.logo} href="/">
-                    <span className={styles.logoText}>
-                        Budh<span className={styles.logoHighlight}>Gaya</span>
-                    </span>
-                    <span className={styles.logoDomain}>.com</span>
+                    <div className={styles.logoWrap}>
+                        <Logo size={52} />
+                        <div style={{display: 'flex', flexDirection: 'column', marginLeft: 10}}>
+                          <span className={styles.logoText}>Budh<span className={styles.logoHighlight}>Gaya</span></span>
+                          <span className={styles.logoDomain}>.com</span>
+                        </div>
+                    </div>
                 </a>
 
                 <button
@@ -34,21 +46,32 @@ function Header() {
                     </svg>
                 </button>
 
-                <div className={`${styles.navLinks} ${open ? styles.open : ''}`}>
-                    <a href="#top-attractions">Attractions</a>
-                    <a href="#explore">Explore</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#about">About</a>
-                    <a href="#cuisine">Cuisine</a>
-                    <a href="#events">Events</a>
-                      <a href="#faq">FAQ</a>
-                      <a href="#community">Community</a>
-                    <a href="#travel-details">Travel</a>
-            
+                                <div className={`${styles.navLinks} ${open ? styles.open : ''}`}>
+                                        {['/attractions','/gallery','/about','/events','/cuisine','/explore','/faq','/travel-details'].map((path) => {
+                                            const labelMap = {
+                                                '/attractions': 'Attractions',
+                                                '/gallery': 'Gallery',
+                                                '/about': 'About',
+                                                '/events': 'Events',
+                                                '/cuisine': 'Cuisine',
+                                                '/explore': 'Explore',
+                                                '/faq': 'FAQ',
+                                                '/travel-details': 'Travel'
+                                            };
+                                            const isActive = window.location.pathname === path;
+                                            return (
+                                                <a
+                                                    key={path}
+                                                    href={path}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={`${styles.tab} ${isActive ? styles.active : ''}`}
+                                                >{labelMap[path]}</a>
+                                            );
+                                        })}
                 </div>
             </nav>
         </header>
     );
 }
-
 export default Header;

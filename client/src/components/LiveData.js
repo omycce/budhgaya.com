@@ -51,8 +51,8 @@ function LiveData() {
       <h2>Live Weather</h2>
       {weather && weather.main && (
         <div className={styles.weatherCard}>
-          <p><strong>{Math.round(weather.main.temp)}°C</strong> - {weather.weather[0].main}</p>
-          <p>Feels like: {Math.round(weather.main.feels_like)}°C</p>
+          <p><strong>{Math.round(weather.main.temp)}Â°C</strong> - {weather.weather[0].main}</p>
+          <p>Feels like: {Math.round(weather.main.feels_like)}Â°C</p>
         </div>
       )}
     </section>
