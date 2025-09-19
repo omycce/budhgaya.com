@@ -1,0 +1,18 @@
+.wrapper {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+.lead { color: #666; margin-bottom: 1rem; }
+.composer { display: block; margin-bottom: 2rem; }
+.input, .textarea { width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid #e6e6e6; margin-bottom: 0.75rem; }
+.textarea { min-height: 100px; resize: vertical; }
+.row { display:flex; justify-content:flex-end; }
+.button { background:#005fa3; color:#fff; border:none; padding:0.6rem 1rem; border-radius:8px; cursor:pointer; }
+.list { list-style:none; padding:0; margin:0; }
+.post { padding:1rem; border-radius:8px; background:linear-gradient(180deg,#f8fbff,#fff); margin-bottom:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; }
+.time { font-size:0.85rem; color:#888; }

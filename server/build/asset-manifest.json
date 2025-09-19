@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0e4aa17b.css",
+    "main.js": "/static/js/main.0dd82337.js",
+    "static/media/bodh-gaya.jpg": "/static/media/bodh-gaya.658d900160a38b830a6e.jpg",
+    "static/media/mahabodhi-temple.jpg": "/static/media/mahabodhi-temple.5391a060cf37896958ad.jpg",
+    "static/media/bodhi-tree.jpg": "/static/media/bodhi-tree.66cdce8ebae4c0399ca2.jpg",
+    "static/media/bodh-gaya-1.jpg": "/static/media/bodh-gaya-1.64eb412132cb7eeb2785.jpg",
+    "static/media/pattern-bg.jpg": "/static/media/pattern-bg.64eb412132cb7eeb2785.jpg",
+    "static/media/buddha-statue.jpg": "/static/media/buddha-statue.ae5ecfd6b8b5b634bb8b.jpg",
+    "index.html": "/index.html",
+    "main.0e4aa17b.css.map": "/static/css/main.0e4aa17b.css.map",
+    "main.0dd82337.js.map": "/static/js/main.0dd82337.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e4aa17b.css",
+    "static/js/main.0dd82337.js"
+  ]
+}

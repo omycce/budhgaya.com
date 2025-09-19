@@ -16,6 +16,7 @@ import Events from './Events';
 import FAQ from './FAQ';
 import TravelDetails from './TravelDetails';
 import LiveData from './LiveData';
+import Community from './Community';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 
@@ -58,6 +59,7 @@ function App() {
               <Cuisine />
               <Events />
               <FAQ />
+              <Community />
               <TravelDetails />
             </>
           } />
