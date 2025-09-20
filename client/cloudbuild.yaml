@@ -15,7 +15,11 @@ steps:
       - |
         set -e
         cd client
-        npm ci --prefer-offline --no-audit --no-fund
+        if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
+          npm ci --prefer-offline --no-audit --no-fund
+        else
+          npm install --prefer-offline --no-audit --no-fund
+        fi
         npm run build
 
   - id: "Build-image"
