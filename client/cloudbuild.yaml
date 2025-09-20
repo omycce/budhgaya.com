@@ -18,3 +18,7 @@ steps:
       - --allow-unauthenticated
 images:
   - 'gcr.io/${PROJECT_ID}/budhgaya-client:${_SHORT_SHA}'
+options:
+  # Use Cloud Logging only for build logs so a user-owned logs bucket is not required.
+  # Valid values: CLOUD_LOGGING_ONLY, NONE
+  logging: CLOUD_LOGGING_ONLY
