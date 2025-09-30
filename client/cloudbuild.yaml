@@ -15,11 +15,8 @@ steps:
       - |
         set -e
         cd client
-        if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
-          npm ci --prefer-offline --no-audit --no-fund
-        else
-          npm install --prefer-offline --no-audit --no-fund
-        fi
+        # Always use npm install with legacy peer deps to avoid peer resolution issues
+        npm install --legacy-peer-deps --prefer-offline --no-audit --no-fund
         npm run build
 
   - id: "Build-image"
