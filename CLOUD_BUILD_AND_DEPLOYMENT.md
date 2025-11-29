@@ -547,6 +547,49 @@ gcloud run services describe budhgaya-com --region=europe-west1 `
 
 ---
 
+## Prevention & Validation
+
+### Validate cloudbuild.yaml Before Committing
+
+To catch configuration issues early, use the validation script:
+
+```powershell
+# Validate a specific file
+.\scripts\validate-cloudbuild.ps1 -Path client/cloudbuild.yaml
+
+# Validate all cloudbuild.yaml files in the repo
+.\scripts\validate-cloudbuild.ps1
+
+# Verbose output (shows warnings for unused substitutions)
+.\scripts\validate-cloudbuild.ps1 -Verbose
+```
+
+This script checks for:
+- ✅ Valid YAML syntax
+- ✅ Undefined substitution references (errors)
+- ✅ Unused defined substitutions (warnings)
+- ✅ Proper use of built-in Cloud Build substitutions
+
+### Git Pre-Commit Hook
+
+A pre-commit hook is installed at `.git/hooks/pre-commit` and will automatically validate all `cloudbuild.yaml` files before each commit. If validation fails:
+
+```bash
+# Bypass the hook if needed
+git commit --no-verify
+```
+
+### Key Rules
+
+When modifying `cloudbuild.yaml`:
+1. **Always use built-in substitutions:** `${SHORT_SHA}`, `${COMMIT_SHA}`, `${PROJECT_ID}`, etc.
+2. **Define custom substitutions:** Start with `_` (e.g., `_IMAGE`, `_REGION`, `_SERVICE`)
+3. **Never leave unused substitutions:** Remove or use all defined custom substitutions
+4. **Keep logging options:** Never remove or modify `options.logging: CLOUD_LOGGING_ONLY`
+5. **Validate before push:** Run the validation script or let the pre-commit hook catch issues
+
+---
+
 ## Support & References
 
 - **Cloud Build Docs:** https://cloud.google.com/cloud-build/docs
