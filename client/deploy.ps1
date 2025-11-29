@@ -1,5 +1,5 @@
 param(
-  [string]$Project = "bodhgaya",
+  [string]$Project = "advance-block-471015-k4",
   [string]$Region = "europe-west1",
   [string]$Service = "budhgaya-com",
   [string]$Image = "budhgaya-client"

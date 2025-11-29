@@ -1,5 +1,5 @@
 Param(
-  [string]$Project = "bodhgaya",
+  [string]$Project = "advance-block-471015-k4",
   [string]$Region = "us-central1",
   [string]$Service = "budhgaya-server"
 )
