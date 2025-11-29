@@ -3,6 +3,8 @@ options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
   logStreamingOption: STREAM_ON
 
+logsBucket: "gs://budhgaya-cloud-build-logs"
+
 timeout: "1200s"
 
 substitutions:
