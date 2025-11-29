@@ -1,6 +1,7 @@
 options:
   logging: CLOUD_LOGGING_ONLY
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
+  logStreamingOption: STREAM_ON
 
 timeout: "1200s"
 
