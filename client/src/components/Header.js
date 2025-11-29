@@ -1,6 +1,5 @@
 ﻿/* eslint-disable unicode-bom */
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 // Link removed (unused) to satisfy eslint
 import styles from './Header.module.css';
 import Logo from './Logo';
@@ -8,7 +7,6 @@ import Logo from './Logo';
 function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
-    const { i18n } = useTranslation();
 
     useEffect(() => {
         // If page doesn't include a hero (dedicated pages opened in new tab),
