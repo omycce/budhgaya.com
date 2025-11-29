@@ -25,20 +25,31 @@ steps:
         npm install --legacy-peer-deps --prefer-offline --no-audit --no-fund
         npm run build
 
-  # Build the Docker image (tagged with the project registry and short sha)
+  # Build the Docker image (tagged with the commit short SHA derived from COMMIT_SHA)
   - id: "Build-image"
     name: "gcr.io/cloud-builders/docker"
+    entrypoint: bash
     args:
-      - build
-      - -t
-      - gcr.io/$PROJECT_ID/${_IMAGE}:${_SHORT_SHA}
-      - client
+      - -lc
+      - |
+        set -euo pipefail
+        # derive a short sha from COMMIT_SHA provided by Cloud Build (fallback to _SHORT_SHA)
+        SHORT=${COMMIT_SHA:-${_SHORT_SHA}}
+        SHORT=${SHORT:0:7}
+        echo "Building image with tag: gcr.io/$PROJECT_ID/${_IMAGE}:$SHORT"
+        docker build -t gcr.io/$PROJECT_ID/${_IMAGE}:$SHORT client
 
   - id: "Push-image"
     name: "gcr.io/cloud-builders/docker"
+    entrypoint: bash
     args:
-      - push
-      - gcr.io/$PROJECT_ID/${_IMAGE}:${_SHORT_SHA}
+      - -lc
+      - |
+        set -euo pipefail
+        SHORT=${COMMIT_SHA:-${_SHORT_SHA}}
+        SHORT=${SHORT:0:7}
+        echo "Pushing image: gcr.io/$PROJECT_ID/${_IMAGE}:$SHORT"
+        docker push gcr.io/$PROJECT_ID/${_IMAGE}:$SHORT
 
   - id: "Deploy-to-Cloud-Run"
     name: "gcr.io/cloud-builders/gcloud"
@@ -47,8 +58,10 @@ steps:
       - -lc
       - |
         set -euo pipefail
-        echo "Deploying to Cloud Run service: ${_SERVICE} (region: ${_REGION})"
-        gcloud run deploy "${_SERVICE}" --image gcr.io/$PROJECT_ID/${_IMAGE}:${_SHORT_SHA} --region "${_REGION}" --platform managed --allow-unauthenticated
+        SHORT=${COMMIT_SHA:-${_SHORT_SHA}}
+        SHORT=${SHORT:0:7}
+        echo "Deploying to Cloud Run service: ${_SERVICE} (region: ${_REGION}) with image tag $SHORT"
+        gcloud run deploy "${_SERVICE}" --image gcr.io/$PROJECT_ID/${_IMAGE}:$SHORT --region "${_REGION}" --platform managed --allow-unauthenticated
 
   # Note: we split build/push and deploy into separate steps so each runs
   # with the appropriate builder image (docker/gcloud) and avoid missing
