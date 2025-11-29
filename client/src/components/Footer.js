@@ -21,6 +21,10 @@ function Footer() {
         <div className={styles.linksCol}>
           <h4>Explore</h4>
           <ul>
+            <li><a href="/destinations" target="_blank" rel="noopener noreferrer">Destinations</a></li>
+            <li><a href="/trips" target="_blank" rel="noopener noreferrer">Trips</a></li>
+            <li><a href="/stories" target="_blank" rel="noopener noreferrer">Stories</a></li>
+            <li><a href="/books" target="_blank" rel="noopener noreferrer">Books</a></li>
             <li><a href="/attractions" target="_blank" rel="noopener noreferrer">Top Attractions</a></li>
             <li><a href="/explore" target="_blank" rel="noopener noreferrer">Plan Your Trip</a></li>
             <li><a href="/cuisine" target="_blank" rel="noopener noreferrer">Cuisine</a></li>
@@ -65,6 +69,7 @@ function Footer() {
               // Add lang param to URL and reload
               const url = new URL(window.location.href);
               url.searchParams.set('lang', e.target.value);
+              try { localStorage.setItem('lang', e.target.value); } catch (_) {}
               window.location.href = url.toString();
             }}
             style={{marginLeft: 18, borderRadius: 6, padding: '0.3em 0.7em', fontWeight: 600, fontSize: '1em', border: '1px solid #ddd', background: '#fff', color: '#222'}}

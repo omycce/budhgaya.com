@@ -9,7 +9,6 @@ function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
     const { i18n } = useTranslation();
-    const [lang, setLang] = useState(i18n.language || 'en');
 
     useEffect(() => {
         // If page doesn't include a hero (dedicated pages opened in new tab),
@@ -46,32 +45,33 @@ function Header() {
                     </svg>
                 </button>
 
-                                <div className={`${styles.navLinks} ${open ? styles.open : ''}`}>
-                                        {['/attractions','/gallery','/about','/events','/cuisine','/explore','/faq','/travel-details'].map((path) => {
-                                            const labelMap = {
-                                                '/attractions': 'Attractions',
-                                                '/gallery': 'Gallery',
-                                                '/about': 'About',
-                                                '/events': 'Events',
-                                                '/cuisine': 'Cuisine',
-                                                '/explore': 'Explore',
-                                                '/faq': 'FAQ',
-                                                '/travel-details': 'Travel'
-                                            };
-                                            const isActive = window.location.pathname === path;
-                                            return (
-                                                <a
-                                                    key={path}
-                                                    href={path}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className={`${styles.tab} ${isActive ? styles.active : ''}`}
-                                                >{labelMap[path]}</a>
-                                            );
-                                        })}
+                <div className={`${styles.navLinks} ${open ? styles.open : ''}`}>
+                  {['/attractions','/gallery','/about','/events','/cuisine','/explore','/faq','/travel-details'].map((path) => {
+                    const labelMap = {
+                      '/attractions': 'Attractions',
+                      '/gallery': 'Gallery',
+                      '/about': 'About',
+                      '/events': 'Events',
+                      '/cuisine': 'Cuisine',
+                      '/explore': 'Explore',
+                      '/faq': 'FAQ',
+                      '/travel-details': 'Travel'
+                    };
+                    const isActive = window.location.pathname === path;
+                    return (
+                      <a
+                        key={path}
+                        href={path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.tab} ${isActive ? styles.active : ''}`}
+                      >{labelMap[path]}</a>
+                    );
+                  })}
                 </div>
             </nav>
         </header>
     );
 }
+
 export default Header;

@@ -3,8 +3,36 @@
 ################################################################################
 
 node_modules/
+**/node_modules/
+
+# Builds
 client/build/
+server/build/
+**/dist/
+
+# Local env
 .env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Temporary
+.temp/
+.tmp/
+**/.cache/
+
+# Cloud Build artifacts
+cloudbuild-local*
 
 
 

@@ -10,10 +10,12 @@
 }
 
 .mainHeader.scrolled {
-  background: rgba(255,255,255,0.98); /* switch to a light background on scroll for readability */
-  box-shadow: 0 6px 20px rgba(11,18,32,0.06);
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(11,18,32,0.08), 0 2px 8px rgba(11,18,32,0.04);
   padding: 0.9rem 0;
-  transition: background 200ms ease, color 200ms ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav {
@@ -43,11 +45,12 @@
 }
 
 .logoText {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #fff; /* white label like Lonely Planet */
-  letter-spacing: 0.6px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: lowercase;
   transition: transform 0.2s ease, color 0.18s ease;
 }
 
@@ -100,29 +103,53 @@
 }
 
 .navLinks a {
-  font-family: var(--font-body);
+  font-family: 'Work Sans', -apple-system, sans-serif;
   text-decoration: none;
-  color: #fff; /* white nav labels */
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.18s ease, transform 0.12s ease;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease, transform 0.12s ease;
 }
 
 .navLinks a.tab {
-  padding: 10px 12px;
-  border-radius: 6px;
+  padding: 10px 16px;
+  border-radius: 8px;
   color: #fff;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.navLinks a.tab::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  transition: transform 0.3s ease;
 }
 
 .navLinks a.tab:hover {
   color: #fff;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+.navLinks a.tab:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .navLinks a.active {
   color: #fff;
-  background: rgba(255,255,255,0.09);
-  box-shadow: inset 0 -3px 0 rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navLinks a.active::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 /* subtle bottom border for header to anchor tabs on light backgrounds when scrolled */

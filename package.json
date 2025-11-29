@@ -1,13 +1,15 @@
 {
-  "name": "budhgaya-server",
-  "version": "1.0.0",
+  "name": "budhgaya-monorepo",
   "private": true,
-  "main": "index.js",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "start": "node index.js",
-    "build-client": "npm --prefix ../client run build && rm -rf build && cp -r ../client/build ./build"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
+    "lint:client": "npm --prefix client run lint",
+    "format:client": "npm --prefix client run format",
+    "build:client": "npm --prefix client run build",
+    "build:server": "npm --prefix server run build-client",
+    "deploy": "./scripts/deploy.ps1"
   }
 }

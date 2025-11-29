@@ -1,0 +1,30 @@
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  min-height: calc(100vh - 200px);
+  position: relative;
+}
+
+.pageContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  right: -2rem;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+  border-radius: 0 0 4px 4px;
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 3rem 1.5rem;
+  }
+  
+  .pageContainer::before {
+    left: -1.5rem;
+    right: -1.5rem;
+  }
+}
+

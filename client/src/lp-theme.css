@@ -1,0 +1,103 @@
+/* Lonely-Planet-inspired theme overrides: fonts, typographic scale, header & hero tweaks */
+/* Google Fonts import - Libre Franklin (sans) and Merriweather (serif) */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;800&family=Merriweather:wght@300;400;700&display=swap');
+
+:root {
+  --lp-font-heading: 'Merriweather', Georgia, serif;
+  --lp-font-body: 'Libre Franklin', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --lp-color-primary: #0083c7; /* blue brand accent */
+  --lp-color-accent: #f5a623; /* warm accent */
+  --lp-bg: #ffffff;
+  --lp-muted: #6b7280;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--lp-font-body);
+  background: var(--lp-bg);
+  color: #0b1220;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.45;
+}
+
+/* Headings like Lonely Planet: strong serif for H1/H2, roomy spacing */
+h1, .heroTitle {
+  font-family: var(--lp-font-heading);
+  font-weight: 700;
+  color: #071428;
+}
+
+h1 {
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem 0;
+}
+
+/* Give hero a centered content style similar to travel homepages */
+.heroContent {
+  margin-left: 0 !important;
+  max-width: 1100px !important;
+  padding: 64px 48px !important;
+  border-radius: 12px !important;
+}
+
+.hero {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Accent buttons */
+.heroCta, .navLinks a.callToAction {
+  background: linear-gradient(90deg,var(--lp-color-primary), #006aa3);
+  color: white;
+  border-radius: 999px;
+  padding: 12px 18px;
+  box-shadow: 0 8px 30px rgba(3,102,153,0.12);
+}
+
+/* Header tweaks for LP-like feel: more breathing room */
+.mainHeader {
+  padding: 18px 0 !important;
+}
+.mainHeader.scrolled {
+  background: rgba(255,255,255,0.96) !important;
+}
+
+/* A soft card grid for featured items */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.lp-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(11,18,32,0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.lp-card:hover { transform: translateY(-6px); box-shadow: 0 18px 46px rgba(11,18,32,0.12); }
+.lp-card img { width: 100%; height: 160px; object-fit: cover; display:block; }
+.lp-card .cardBody { padding: 16px; }
+.lp-card .cardTitle { font-family: var(--lp-font-heading); font-size: 1.05rem; margin: 0 0 6px 0; }
+.lp-card .cardMeta { color: var(--lp-muted); font-size: 0.9rem; }
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .heroContent { padding: 32px 20px !important; }
+  .lp-card img { height: 140px; }
+}
+
+/* Small utility */
+.container-wide { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* subtle link style */
+a { color: var(--lp-color-primary); }

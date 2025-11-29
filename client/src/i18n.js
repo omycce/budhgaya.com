@@ -44,13 +44,35 @@ const resources = {
   },
 };
 
+// Determine initial language: URL ?lang=xx -> localStorage 'lang' -> browser default -> 'en'
+function getInitialLanguage() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = params.get('lang');
+    if (fromUrl) return fromUrl;
+    const stored = localStorage.getItem('lang') || localStorage.getItem('i18nextLng');
+    if (stored) return stored;
+  } catch (_) {}
+  return 'en';
+}
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en", // Default language
-  fallbackLng: "en",
+  lng: getInitialLanguage(),
+  fallbackLng: 'en',
   interpolation: {
-    escapeValue: false, // React already escapes values
+    escapeValue: false,
   },
+});
+
+// Persist language changes and update <html lang>
+i18n.on('languageChanged', (lng) => {
+  try {
+    localStorage.setItem('lang', lng);
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('lang', lng);
+    }
+  } catch (_) {}
 });
 
 export default i18n;

@@ -1,0 +1,113 @@
+.stories {
+  padding: 5rem 0 4rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+  position: relative;
+}
+
+.stories::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+h2 {
+  font-size: 2.75rem;
+  text-align: center;
+  margin: 0 0 1rem;
+  color: var(--color-dark);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.lead {
+  text-align: center;
+  color: #4b5563;
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
+  font-family: 'Work Sans', -apple-system, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem;
+  color: var(--color-dark);
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.card p {
+  margin: 0.5rem 0;
+  color: #4b5563;
+  line-height: 1.7;
+  font-family: 'Work Sans', -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Rich article block (top story) */
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  margin: 0.25rem 0 0.5rem 1.1rem;
+  color: #374151;
+}
+
+.card li { margin: 0.25rem 0; }
+
+@media (min-width: 768px) {
+  .lead { margin-bottom: 2.5rem; }
+  .card { padding: 2rem; }
+}
+
+

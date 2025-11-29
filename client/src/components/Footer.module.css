@@ -16,10 +16,22 @@
     box-shadow: 0 2px 8px rgba(41,124,187,0.08);
 }
 .footer {
-    background: linear-gradient(180deg, #1b1b1b, #111);
+    background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
     color: #e6eef7;
-    padding: 48px 24px 16px 24px;
+    padding: 64px 24px 24px 24px;
     font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,114,206,0.3), transparent);
 }
 
 .container {
@@ -38,15 +50,21 @@
 }
 
 .brand {
-    font-size: 22px;
+    font-size: 1.75rem;
     margin: 0;
-    font-weight: 800;
+    font-weight: 900;
     color: #fff;
+    font-family: 'Playfair Display', Georgia, serif;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
 }
 
 .brandTag {
-    color: #c7dff6;
+    color: rgba(255,255,255,0.85);
     margin: 0;
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
 }
 
 .socialSmall a {
@@ -56,8 +74,12 @@
 }
 
 .linksCol h4 {
-    margin: 0 0 8px 0;
-    color: #cbe6ff;
+    margin: 0 0 12px 0;
+    color: rgba(255,255,255,0.95);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .linksCol ul {
@@ -71,18 +93,26 @@
 }
 
 .linksCol a {
-    color: #d9efff;
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    transition: color 0.2s ease;
 }
 
 .linksCol a:hover {
     color: #fff;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .newsletterCol h4 {
-    margin: 0 0 8px 0;
-    color: #cbe6ff;
+    margin: 0 0 12px 0;
+    color: rgba(255,255,255,0.95);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .subscribeForm {
@@ -101,13 +131,27 @@
 }
 
 .subscribeButton {
-    background: linear-gradient(90deg,#297CBB,#1f6aa6);
+    background: var(--color-primary);
     border: none;
     color: #fff;
-    padding: 10px 14px;
+    padding: 10px 20px;
     border-radius: 6px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,114,206,0.2);
+}
+
+.subscribeButton:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,114,206,0.3);
+}
+
+.subscribeButton:active {
+    transform: translateY(0);
 }
 
 .bottomBar {

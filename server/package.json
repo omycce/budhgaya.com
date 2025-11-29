@@ -5,11 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build-client": "npm --prefix ../client run build && rm -rf build && cp -r ../client/build ./build"
+    "build-client": "node scripts/sync-build.js",
+    "scrape:encyclopedia": "node scripts/scrape-encyclopedia.js"
   },
   "dependencies": {
+    "cheerio": "^1.0.0",
     "compression": "^1.7.4",
+    "dotenv": "^16.6.1",
     "express": "^4.18.2",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^2.7.0",
+    "nodemailer": "^7.0.10",
     "openai": "^5.22.0"
   }
 }

@@ -27,11 +27,11 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.svg" />
     <link rel="mask-icon" href="%PUBLIC_URL%/favicon.svg" color="#0072CE" />
     <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
-    <!-- Google Fonts: Inter (system-like) + Merriweather (headings) -->
+    <!-- Google Fonts: Lonely Planet style - System fonts with fallbacks -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <title>Budhgaya - Explore Spirituality and Culture</title>
         <!-- Structured data: Organization + WebSite for SEO rich results -->
@@ -41,7 +41,8 @@
             "@type": "Organization",
             "name": "Budhgaya",
             "url": "https://budhgaya.com",
-            "logo": "%PUBLIC_URL%/bodh-gaya-1.jpg",
+            "logo": "https://budhgaya.com/bodh-gaya-1.jpg",
+            "description": "Comprehensive travel guide and information about Bodh Gaya, the sacred Buddhist pilgrimage site where the Buddha attained enlightenment",
             "sameAs": [
                 "https://www.facebook.com/btmcbodhgaya",
                 "http://instagram.com/mahabodhitempleoffice",
@@ -56,11 +57,46 @@
             "@type": "WebSite",
             "url": "https://budhgaya.com",
             "name": "Budhgaya",
+            "description": "Bodh Gaya Tourism - Buddhist Pilgrimage Site & Travel Guide",
             "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://budhgaya.com/?s={search_term_string}",
                 "query-input": "required name=search_term_string"
             }
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TouristDestination",
+            "name": "Bodh Gaya",
+            "description": "The site where Siddhartha Gautama attained enlightenment beneath the Bodhi Tree. The Mahabodhi Temple Complex is a UNESCO World Heritage Site.",
+            "url": "https://budhgaya.com",
+            "image": "https://budhgaya.com/assets/images/mahabodhi-temple.jpg",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bodh Gaya",
+                "addressRegion": "Bihar",
+                "postalCode": "824231",
+                "addressCountry": "IN"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "24.6961",
+                "longitude": "84.9914"
+            },
+            "containsPlace": [
+                {
+                    "@type": "Place",
+                    "name": "Mahabodhi Temple",
+                    "description": "UNESCO World Heritage Site - the site of Buddha's enlightenment"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Bodhi Tree",
+                    "description": "Sacred fig tree where the Buddha meditated"
+                }
+            ]
         }
         </script>
 </head>

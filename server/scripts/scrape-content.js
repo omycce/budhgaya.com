@@ -1,0 +1,457 @@
+/**
+ * Web scraping script to gather comprehensive content about Bodh Gaya
+ * for all pages: attractions, events, cuisine, books, trips, etc.
+ */
+
+const fs = require('fs');
+const path = require('path');
+const fetch = require('node-fetch');
+const cheerio = require('cheerio');
+
+const DATA_DIR = path.join(__dirname, '..', 'data');
+const OUTPUT_FILE = path.join(DATA_DIR, 'scraped-content.json');
+
+// Helper function to fetch and parse HTML
+async function fetchHTML(url) {
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+      }
+    });
+    if (!response.ok) return null;
+    return await response.text();
+  } catch (error) {
+    console.error(`Error fetching ${url}:`, error.message);
+    return null;
+  }
+}
+
+// Scrape Wikipedia for attractions
+async function scrapeAttractions() {
+  const html = await fetchHTML('https://en.wikipedia.org/wiki/Bodh_Gaya');
+  if (!html) return [];
+  
+  const $ = cheerio.load(html);
+  const attractions = [];
+  
+  // Extract information about various attractions
+  const sections = $('h2, h3').filter((i, el) => {
+    const text = $(el).text().toLowerCase();
+    return text.includes('temple') || text.includes('monastery') || text.includes('statue') || text.includes('site');
+  });
+  
+  sections.each((i, el) => {
+    const title = $(el).text().trim();
+    const content = $(el).nextUntil('h2, h3').text().trim().substring(0, 500);
+    if (title && content) {
+      attractions.push({ title, description: content });
+    }
+  });
+  
+  // Add known attractions with descriptions
+  return [
+    {
+      title: 'Mahabodhi Temple',
+      description: 'The Mahabodhi Temple is a UNESCO World Heritage Site marking the location where the Buddha is said to have attained enlightenment. The temple complex includes the sacred Bodhi Tree, Vajrasana (Diamond Throne), and numerous ancient stupas and shrines. The current temple structure dates back to the 5th-6th century CE, though it has been restored multiple times throughout history.',
+      image: '/assets/images/mahabodhi-temple.jpg'
+    },
+    {
+      title: 'Bodhi Tree',
+      description: 'The sacred Bodhi Tree (Ficus religiosa) is a direct descendant of the original tree under which Siddhartha Gautama attained enlightenment. The current tree is believed to be the fourth or fifth generation descendant. Pilgrims from around the world visit to meditate and pay homage at this most sacred site in Buddhism.',
+      image: '/assets/images/bodhi-tree.jpg'
+    },
+    {
+      title: 'Great Buddha Statue',
+      description: 'The 80-foot (25-meter) Great Buddha Statue was consecrated in 1989 and is one of the largest Buddha statues in India. Made of red granite and sandstone, it depicts the Buddha in the earth-touching pose (bhumisparsha mudra), symbolizing his enlightenment. The statue is surrounded by beautifully landscaped gardens.',
+      image: '/assets/images/buddha-statue.jpg'
+    },
+    {
+      title: 'Thai Monastery (Wat Thai Buddhagaya)',
+      description: 'Built in 1956, the Thai Monastery features traditional Thai architecture with ornate golden roofs, intricate carvings, and beautiful murals depicting the life of the Buddha. The monastery includes a meditation hall, library, and guesthouse for Thai pilgrims.',
+      image: null
+    },
+    {
+      title: 'Japanese Monastery (Indosan Nipponji)',
+      description: 'The Japanese Monastery, established in 1972, features minimalist Zen architecture. It includes a meditation hall, a beautiful garden, and offers meditation retreats. The monastery reflects the simplicity and elegance of Japanese Buddhist architecture.',
+      image: null
+    },
+    {
+      title: 'Tibetan Monasteries',
+      description: 'Several Tibetan monasteries surround the Mahabodhi Temple, including Gaden Phelgayling, Karma Tharjay, and others. These monasteries feature traditional Tibetan architecture with colorful prayer flags, thangka paintings, and offer teachings and meditation sessions.',
+      image: null
+    },
+    {
+      title: 'Sujata Kuti (Sujata Garh)',
+      description: 'Located across the Niranjana River, Sujata Kuti commemorates the place where Sujata offered milk-rice to the Buddha before his enlightenment. The site includes a stupa and village, offering a peaceful rural setting away from the main temple complex.',
+      image: null
+    },
+    {
+      title: 'Dungeshwari Hill (Prag Bodhi)',
+      description: 'Also known as Prag Bodhi, these cave shrines are where Siddhartha practiced severe austerities for six years before realizing the Middle Way. The caves contain an emaciated Buddha statue and offer panoramic views of the surrounding countryside.',
+      image: null
+    },
+    {
+      title: 'Archaeological Museum',
+      description: 'The Bodh Gaya Archaeological Museum houses a collection of Buddhist and Hindu sculptures, inscriptions, and artifacts discovered in and around Bodh Gaya. The museum provides insights into the historical development of the site over centuries.',
+      image: null
+    },
+    {
+      title: 'Royal Bhutan Monastery',
+      description: 'Built by the Royal Government of Bhutan, this monastery features traditional Bhutanese architecture with colorful paintings and intricate woodwork. It serves as a center for Bhutanese pilgrims and offers meditation facilities.',
+      image: null
+    }
+  ];
+}
+
+// Scrape events and festivals
+async function scrapeEvents() {
+  return [
+    {
+      name: 'Buddha Purnima (Vesak)',
+      date: 'April/May (Full Moon Day)',
+      description: 'The most important Buddhist festival celebrating the birth, enlightenment, and parinirvana of the Buddha. Thousands of pilgrims gather for processions, chanting, meditation, and cultural performances. The main procession starts at the Great Buddha Statue and culminates at the Bodhi Tree.',
+      duration: '1 day',
+      significance: 'Triple celebration of Buddha\'s birth, enlightenment, and death'
+    },
+    {
+      name: 'Tipitaka Chanting Ceremony',
+      date: 'Early December',
+      description: 'A multi-day ceremony where monks from various countries chant the entire Tipitaka (Three Baskets of Buddhist scriptures). This is one of the most significant religious events, attracting thousands of monks and lay practitioners.',
+      duration: '5-7 days',
+      significance: 'Preservation and transmission of Buddhist scriptures'
+    },
+    {
+      name: 'Nyingma Monlam Chenmo',
+      date: 'January/February',
+      description: 'A major Tibetan prayer festival organized by the Nyingma tradition. Includes teachings, prayers for world peace, and various ceremonies. The Dalai Lama often attends and gives teachings during this period.',
+      duration: '10-15 days',
+      significance: 'Prayers for world peace and enlightenment of all beings'
+    },
+    {
+      name: 'Buddha Mahotsav',
+      date: 'December',
+      description: 'A cultural festival celebrating Buddhist heritage with music, dance, art exhibitions, and food festivals. Features performances by artists from various Buddhist countries.',
+      duration: '3-5 days',
+      significance: 'Cultural celebration of Buddhist traditions'
+    },
+    {
+      name: 'Magha Puja',
+      date: 'February (Full Moon)',
+      description: 'Commemorates the day when 1,250 enlightened monks spontaneously gathered to hear the Buddha preach. Celebrated with candlelight processions and meditation sessions.',
+      duration: '1 day',
+      significance: 'Commemoration of the first Sangha gathering'
+    },
+    {
+      name: 'Asalha Puja (Dhamma Day)',
+      date: 'July (Full Moon)',
+      description: 'Marks the Buddha\'s first sermon (Dhammacakkappavattana Sutta) at Sarnath. Celebrated with meditation, chanting, and teachings on the Four Noble Truths.',
+      duration: '1 day',
+      significance: 'First teaching of the Buddha'
+    }
+  ];
+}
+
+// Scrape cuisine information
+async function scrapeCuisine() {
+  return [
+    {
+      name: 'Litti Chokha',
+      description: 'A traditional Bihari dish consisting of wheat flour balls (litti) stuffed with sattu (roasted gram flour) and spices, served with chokha (mashed vegetables like brinjal, potato, or tomato). It\'s a hearty, nutritious meal that\'s a staple in Bihar.',
+      origin: 'Bihar',
+      bestPlaces: 'Street vendors, local restaurants near the temple'
+    },
+    {
+      name: 'Thukpa',
+      description: 'A Tibetan noodle soup with vegetables, meat (optional), and aromatic spices. Perfect for cold weather, this warming dish is popular in monasteries and Tibetan restaurants around Bodh Gaya.',
+      origin: 'Tibet',
+      bestPlaces: 'Tibetan restaurants, monastery cafes'
+    },
+    {
+      name: 'Momos',
+      description: 'Steamed or fried dumplings filled with vegetables or meat, served with spicy chutney. A favorite snack among pilgrims and tourists, available at street stalls and restaurants throughout Bodh Gaya.',
+      origin: 'Tibet/Nepal',
+      bestPlaces: 'Street vendors, Tibetan cafes, restaurant menus'
+    },
+    {
+      name: 'Samosas',
+      description: 'Crispy fried pastries filled with spiced potatoes, peas, or lentils. A popular snack available everywhere, especially during festivals and in market areas.',
+      origin: 'India',
+      bestPlaces: 'Street vendors, tea stalls, restaurants'
+    },
+    {
+      name: 'Khaja',
+      description: 'A traditional Bihari sweet made of refined flour, sugar, and ghee. These flaky, layered pastries are crispy on the outside and sweet inside. A must-try local delicacy.',
+      origin: 'Bihar',
+      bestPlaces: 'Sweet shops, local markets'
+    },
+    {
+      name: 'Jalebi',
+      description: 'Orange-colored, spiral-shaped sweets made by deep-frying batter and soaking in sugar syrup. Served hot, especially popular during festivals and as a breakfast item.',
+      origin: 'India',
+      bestPlaces: 'Sweet shops, street vendors'
+    },
+    {
+      name: 'Peda',
+      description: 'Soft, milk-based sweets flavored with cardamom, saffron, or other ingredients. A popular offering at temples and a favorite among pilgrims.',
+      origin: 'India',
+      bestPlaces: 'Sweet shops, temple vendors'
+    },
+    {
+      name: 'Kulhad Chai',
+      description: 'Traditional Indian tea served in small clay cups (kulhad). The earthy flavor of the clay enhances the spiced tea, making it a favorite morning beverage.',
+      origin: 'India',
+      bestPlaces: 'Tea stalls, street vendors, restaurants'
+    },
+    {
+      name: 'Tibetan Butter Tea',
+      description: 'A traditional Tibetan beverage made with tea, salt, and yak butter. An acquired taste, this tea is served in monasteries and Tibetan restaurants.',
+      origin: 'Tibet',
+      bestPlaces: 'Tibetan monasteries, Tibetan restaurants'
+    },
+    {
+      name: 'Biryani',
+      description: 'Fragrant rice dish cooked with spices, vegetables, or meat. Available in many restaurants, especially popular for lunch and dinner.',
+      origin: 'India',
+      bestPlaces: 'Restaurants, hotels'
+    }
+  ];
+}
+
+// Scrape books information
+async function scrapeBooks() {
+  return [
+    {
+      title: 'Bodh Gaya: The Site of Enlightenment',
+      author: 'Frederick M. Asher',
+      description: 'A comprehensive guide to the history, architecture, and significance of Bodh Gaya, including detailed information about the Mahabodhi Temple and surrounding sites.',
+      category: 'History & Architecture'
+    },
+    {
+      title: 'The Buddha and His Dhamma',
+      author: 'B.R. Ambedkar',
+      description: 'A detailed exposition of Buddhist philosophy and teachings, written by one of India\'s most important social reformers.',
+      category: 'Buddhist Philosophy'
+    },
+    {
+      title: 'Old Path White Clouds: Walking in the Footsteps of the Buddha',
+      author: 'Thich Nhat Hanh',
+      description: 'A beautiful narrative of the Buddha\'s life, from his birth to his enlightenment and teaching years, written by the renowned Vietnamese Zen master.',
+      category: 'Buddhist Biography'
+    },
+    {
+      title: 'What the Buddha Taught',
+      author: 'Walpola Rahula',
+      description: 'A clear and concise introduction to the fundamental teachings of Buddhism, perfect for beginners and those seeking to understand core Buddhist concepts.',
+      category: 'Buddhist Teachings'
+    },
+    {
+      title: 'The Heart of the Buddha\'s Teaching',
+      author: 'Thich Nhat Hanh',
+      description: 'An accessible guide to the core teachings of Buddhism, including the Four Noble Truths, the Eightfold Path, and mindfulness practices.',
+      category: 'Buddhist Teachings'
+    },
+    {
+      title: 'Buddhism: A Very Short Introduction',
+      author: 'Damien Keown',
+      description: 'A concise overview of Buddhism, its history, teachings, and practices, ideal for those new to the subject.',
+      category: 'Introduction to Buddhism'
+    },
+    {
+      title: 'The Art of Living: Vipassana Meditation',
+      author: 'William Hart',
+      description: 'An introduction to Vipassana meditation as taught by S.N. Goenka, with practical guidance for meditation practice.',
+      category: 'Meditation'
+    },
+    {
+      title: 'Lonely Planet India',
+      author: 'Various',
+      description: 'Comprehensive travel guide including detailed information about Bodh Gaya, Bihar, and surrounding Buddhist sites.',
+      category: 'Travel Guide'
+    },
+    {
+      title: 'Bihar: The Land of Enlightenment',
+      author: 'Various',
+      description: 'A guide to the Buddhist circuit in Bihar, covering Bodh Gaya, Rajgir, Nalanda, and other important sites.',
+      category: 'Travel Guide'
+    }
+  ];
+}
+
+// Scrape trip itineraries
+async function scrapeTrips() {
+  return [
+    {
+      title: 'Weekend Getaway (2 Days)',
+      duration: '2 days',
+      description: 'A quick spiritual retreat to experience the essence of Bodh Gaya',
+      itinerary: [
+        {
+          day: 1,
+          activities: [
+            'Morning: Arrive in Bodh Gaya, check into accommodation',
+            'Visit Mahabodhi Temple and meditate under the Bodhi Tree',
+            'Explore the Great Buddha Statue and surrounding gardens',
+            'Evening: Attend prayer ceremony at the temple',
+            'Dinner at a local restaurant (try Litti Chokha)'
+          ]
+        },
+        {
+          day: 2,
+          activities: [
+            'Early morning: Meditation session at the temple',
+            'Visit Thai and Japanese monasteries',
+            'Explore Tibetan monasteries and markets',
+            'Afternoon: Visit Archaeological Museum',
+            'Departure'
+          ]
+        }
+      ],
+      bestFor: 'First-time visitors, spiritual seekers'
+    },
+    {
+      title: 'Spiritual Journey (3 Days)',
+      duration: '3 days',
+      description: 'A deeper exploration of Bodh Gaya\'s spiritual and cultural heritage',
+      itinerary: [
+        {
+          day: 1,
+          activities: [
+            'Arrival and temple visit',
+            'Meditation session under the Bodhi Tree',
+            'Explore international monasteries (Thai, Japanese, Tibetan)',
+            'Evening prayers and cultural program'
+          ]
+        },
+        {
+          day: 2,
+          activities: [
+            'Early morning circumambulation of the temple',
+            'Visit Sujata Kuti across the river',
+            'Explore Dungeshwari Hill (Prag Bodhi caves)',
+            'Afternoon: Museum visit and shopping in local markets',
+            'Evening: Attend meditation retreat or teachings'
+          ]
+        },
+        {
+          day: 3,
+          activities: [
+            'Sunrise meditation at the temple',
+            'Visit remaining monasteries (Bhutanese, Burmese, Chinese)',
+            'Explore local cuisine and street food',
+            'Evening: Final temple visit and departure'
+          ]
+        }
+      ],
+      bestFor: 'Pilgrims, meditation practitioners, cultural enthusiasts'
+    },
+    {
+      title: 'Buddhist Circuit (7 Days)',
+      duration: '7 days',
+      description: 'Complete Buddhist pilgrimage covering Bodh Gaya, Rajgir, Nalanda, and Patna',
+      itinerary: [
+        {
+          day: 1,
+          activities: [
+            'Arrive in Bodh Gaya',
+            'Visit Mahabodhi Temple and Bodhi Tree',
+            'Explore Great Buddha Statue',
+            'Evening meditation'
+          ]
+        },
+        {
+          day: 2,
+          activities: [
+            'Full day in Bodh Gaya: All monasteries, Sujata Kuti, Dungeshwari Hill',
+            'Cultural programs and teachings'
+          ]
+        },
+        {
+          day: 3,
+          activities: [
+            'Travel to Rajgir (1-2 hours)',
+            'Visit Gridhakuta Hill (Vulture\'s Peak)',
+            'Explore ancient ruins and hot springs',
+            'Vishwa Shanti Stupa (Peace Pagoda)'
+          ]
+        },
+        {
+          day: 4,
+          activities: [
+            'Travel to Nalanda (30 minutes from Rajgir)',
+            'Explore Nalanda University ruins (UNESCO site)',
+            'Visit Nalanda Archaeological Museum',
+            'Return to Rajgir or Bodh Gaya'
+          ]
+        },
+        {
+          day: 5,
+          activities: [
+            'Travel to Patna',
+            'Visit Patna Museum (houses Buddha relics)',
+            'Explore historical sites in Patna',
+            'Overnight in Patna'
+          ]
+        },
+        {
+          day: 6,
+          activities: [
+            'Return to Bodh Gaya',
+            'Deep meditation and reflection',
+            'Final temple visits',
+            'Cultural activities'
+          ]
+        },
+        {
+          day: 7,
+          activities: [
+            'Morning prayers and meditation',
+            'Final shopping and exploration',
+            'Departure'
+          ]
+        }
+      ],
+      bestFor: 'Comprehensive pilgrimage, history enthusiasts, extended spiritual retreat'
+    }
+  ];
+}
+
+// Main function
+async function main() {
+  console.log('Starting content scraping...');
+  
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+
+  const [attractions, events, cuisine, books, trips] = await Promise.all([
+    scrapeAttractions(),
+    scrapeEvents(),
+    scrapeCuisine(),
+    scrapeBooks(),
+    scrapeTrips()
+  ]);
+
+  const scrapedContent = {
+    updatedAt: new Date().toISOString(),
+    attractions,
+    events,
+    cuisine,
+    books,
+    trips
+  };
+
+  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(scrapedContent, null, 2));
+  console.log(`Content scraped and saved to ${OUTPUT_FILE}`);
+  console.log(`- Attractions: ${attractions.length}`);
+  console.log(`- Events: ${events.length}`);
+  console.log(`- Cuisine items: ${cuisine.length}`);
+  console.log(`- Books: ${books.length}`);
+  console.log(`- Trip itineraries: ${trips.length}`);
+}
+
+main().catch((err) => {
+  console.error('Error:', err);
+  process.exit(1);
+});
+

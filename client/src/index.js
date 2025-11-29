@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
 import './index.css'; // import global styles
 import './i18n'; // Import i18n configuration
+import './lp-theme.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -24,19 +24,20 @@
 
 .cuisineSection {
   max-width: 1200px;
-  margin: 4rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin: 5rem auto;
+  padding: 0 2rem;
+  background: #FFFFFF;
 }
 
 .cuisineTitle {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 2rem;
+  font-size: 2.75rem;
+  color: var(--color-dark);
+  margin-bottom: 2.5rem;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .cuisineList {
@@ -48,26 +49,33 @@
 }
 
 .cuisineItem {
-  background: #f8f9fa;
-  padding: 1.5rem;
+  background: #FFFFFF;
+  padding: 1.75rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
 }
 
 .cuisineItem:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-color: #d1d5db;
 }
 
 .cuisineItem b {
-  color: #FF6B6B;
+  color: var(--color-primary);
   display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
 }
 
-.cuisineItem p {
-  color: #666;
-  line-height: 1.6;
-  margin: 0;
+.cuisineItem {
+  color: #4b5563;
+  line-height: 1.7;
+  font-family: 'Work Sans', -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }

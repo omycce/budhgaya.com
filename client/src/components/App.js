@@ -8,11 +8,15 @@ import Featured from './Featured';
 import Explore from './Explore';
 import Gallery from './Gallery';
 import About from './About';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Cuisine from './Cuisine';
 import Events from './Events';
 import FAQ from './FAQ';
 import TravelDetails from './TravelDetails';
+import Destinations from './Destinations';
+import Books from './Books';
+import Trips from './Trips';
+import Stories from './Stories';
 // Encyclopedia and LiveData were intentionally removed from the client-side
 // single-page app. A static `encyclopedia.html` is available in `public/`.
 import Chatbot from './Chatbot';
@@ -64,6 +68,10 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/cuisine" element={<Cuisine />} />
           <Route path="/explore" element={<Explore />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/trips" element={<Trips />} />
+          <Route path="/stories" element={<Stories />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/travel-details" element={<TravelDetails />} />
           {/* The original explore page with all sections */}
@@ -83,9 +91,6 @@ function App() {
             <>
               <Hero />
               <Featured />
-              <div style={{textAlign: 'center', margin: '28px 0'}}>
-              
-              </div>
             </>
           } />
         </Routes>
